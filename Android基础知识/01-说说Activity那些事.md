@@ -1,4 +1,4 @@
-# 四大组件_Activity
+# 01-说说Activity那些事
 
 [TOC]
 
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 public class SecondActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +174,25 @@ protected void onRestoreInstanceState(Bundle savedInstanceState)
 ![lock](http://oaxelf1sk.bkt.clouddn.com/snipaste_20170228_095641.png)
 
 只是调用了onPause和onStop没有销毁Activity
+###可见性
 
+activity的完整生存期会在 onCreate() 调用和 onDestroy() 调用之间发生。　
+
+activity的可见生存期会在 onStart() 调用和 onStop() 调用之间发生。系统会在activity的整个生存期内多次调用 onStart() 和onStop()， 因为activity可能会在显示和隐藏之间不断地来回切换。　
+
+activity的前后台切换会在 onResume() 调用和 onPause() 之间发生。 因为这个状态可能会经常发生转换，为了避免切换迟缓引起的用户等待，这两个方法中的代码应该相当地轻量化。
+
+### activity回收和保存信息
+
+> onSaveInstanceState方法
+
+　　在activity　可能被回收之前　调用,用来保存自己的状态和信息，以便回收后重建时恢复数据（在onCreate()或onRestoreInstanceState()中恢复）。旋转屏幕重建activity会调用该方法，但其他情况在onRause()和onStop()状态的activity不一定会调用 ，下面是该方法的文档说明。
+
+系统灵活的来决定调不调用该方法，**但是如果要调用就一定发生在onStop方法之前，但并不保证发生在onPause的前面还是后面。**
+
+> onRestoreInstanceState方法
+
+　　这个方法在onStart 和 onPostCreate之间调用，在onCreate中也可以状态恢复，但有时候需要所有布局初始化完成后再恢复状态。
 
 ## 启动模式
 
@@ -255,6 +272,28 @@ SecondActivity被干掉了，大哥是MianActivity，那么什么是Activity的�
 
 Activity只能单独存在一个栈中，换句话说就是整个手机就你一个实例
 
+### 使用Intent来标示启动模式
+
+```
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+```
+
+####标志的分类　　　
+
+- FLAG_ACTIVITY_NEW_TASK
+
+　　与"singleTask"模式相同，在新的 task 中启动 activity。如果要启动的 activity 已经运行于某 task 中，则那个 task 将调入前台。
+
+- FLAG_ACTIVITY_SINGLE_TOP
+
+　　与 "singleTop"模式相同，如果要启动的 activity位于back stack 顶，系统不会重新创建目标Activity实例,而是直接复用Task栈顶的Activity。
+
+- FLAG_ACTIVITY_CLEAR_TOP
+
+　　**此种模式在launchMode中没有对应的属性值。**如果要启动的 activity 已经在当前 task 中运行，则不再启动一个新的实例，且所有在其上面的 activity 将被销毁。
+
 ## Activity优先级
 
 从高到低排序：
@@ -264,3 +303,28 @@ Activity只能单独存在一个栈中，换句话说就是整个手机就你一
 3. 不可见，已经处于暂停或者直接onStop后的Activity
 
 当内存不足的时候低优先级的Activity就会被杀掉，如果一个组件没有放在四大组件中，那么很快被杀死，所以后台任务最好放到一个四大组件中，防止被干掉。
+
+## 注意
+
+### Activity的全屏
+
+```
+        // 去除标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+```
+
+requestWindowFeature要在setContentView调用之前否则会崩溃
+
+ ### Activity的公开性
+
+一般设置Activity为非公开的　　
+
+```
+<activity  
+．．．．．． 
+android:exported="false" /> 
+```
+
+注意：非公开的Activity不能设置intent-filter，以免被其他activity唤醒（如果拥有相同的intent-filter）。
