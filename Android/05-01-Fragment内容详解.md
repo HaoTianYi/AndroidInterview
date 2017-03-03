@@ -1,4 +1,4 @@
-# 05-Fragment内容详解
+# 05--01-Fragment内容详解
 
 [TOC]
 
@@ -7,6 +7,9 @@
 ​	**Fragment必须总是被嵌入到一个activity之中**，并且fragment的生命周期直接受其宿主activity的生命周期的影响。
 
 ​	应该将每一个fragment设计为模块化的和可复用化的activity组件
+
+​	两个重要的支持库类，一个是 Fragment 类（ android.support.v4.app.
+Fragment ），另一个是 FragmentActivity （ android.support.v4.app.Fragment- Activity ）对应的是`getSupportFragmentManager()`
 
 ## 基本使用
 
@@ -183,11 +186,28 @@ hide和show方法会保留用户正在使用的数据；remove不会保留数据
 
 replace相当于是remove和add的合体
 
-## Fragment队列和事务的回退栈
+## FragmentManager
+
+![](http://oaxelf1sk.bkt.clouddn.com/snipaste_20170303_105121.png)
 
 　　在调用commit()之前，可以将事务添加到fragment事务后台栈中（通过调用addToBackStatck()）。这个后台栈由activity管理，并且允许用户通过按BACK键回退到前一个fragment状态。
 
 ​	Activity中有个FragmentManager，其内部维护fragment队列，以及fragment事务的回退栈。
+
+### 常见使用方式
+
+```
+FragmentManager fm = getSupportFragmentManager();
+Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+if (fragment == null) {
+	fragment = new CrimeFragment();
+	fm.beginTransaction()
+		.add(R.id.fragment_container, fragment)
+		.commit();
+}
+```
+
+> 这里使用FrameLayout组件的ID去得到fragment，注意**判断是否为空**
 
 ### 设置回退栈
 
@@ -257,8 +277,6 @@ fragment对应的布局fragment_my.xml:
 </LinearLayout>
 ```
 
-![](http://oaxelf1sk.bkt.clouddn.com/device-2017-03-02-181523.png)
-
 修改fragment中的代码，并且假如回退：
 
 ```
@@ -307,6 +325,8 @@ fragment对应的布局fragment_my.xml:
 ​	当要进行fragment之间的切换时，可以使用transaction.replace也可以使用transaction.hide方法，区别就是hide会保存正在编辑的数据。
 
 ## 生命周期
+
+![](http://oaxelf1sk.bkt.clouddn.com/snipaste_20170303_104512.png)
 
 　　如果activity的进程被杀掉了，在activity被重新创建时，你需要恢复fragment状态。可以执行fragment的onSaveInstanceState()来保存状态（注意在fragment是在onCreate()，onCreateView()，或onActvityCreate()中进行恢复）。
 
@@ -417,223 +437,6 @@ fragment对应的布局fragment_my.xml:
 19864-19864 W/ty: ----Fragment---onDestroy----
 19864-19864 W/ty: ----Fragment---onDetach----
 19864-19864 W/ty: -------onDestroy------
-```
-
-## 和Activity交互
-
-- 调用fragment的函数findFragmentById()或者findFragmentByTag()
-
-```
-ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentById(R.id.example_fragment);
-```
-
-- 在Fragment中可以通过getActivity得到当前绑定的Activity的实例。
-- 创建activity事件回调函数，在fragment内部定义一个回调接口，宿主activity来实现它。
-
-### 通信机制
-
-​	考虑Fragment的重复使用，所以必须降低Fragment与Activity的耦合，而且Fragment更不应该直接操作别的Fragment，毕竟Fragment操作应该由它的管理者Activity来决定，所有大部分的逻辑应该放到Activity中
-
-#### 使用回调接口
-
-改进MyFragment代码：
-
-```
-    @Override
-    public void onClick(View v) {
-        
-        ((onFragmentClickListener) getActivity()).onClick();
-    }
-
-    public interface onFragmentClickListener {
-        void onClick();
-    }
-```
-
-### 使用set方法
-
-```
-    onFragmentClickListener mListener;
-    
-    @Override
-    public void onClick(View v) {
-        if (mListener != null) {
-            mListener.onClick();
-        }
-    }
-
-    public interface onFragmentClickListener {
-        void onClick();
-    }    
-
-    public void setFragemntClickListener(onFragmentClickListener listener) {
-        mListener = listener;
-    }
-```
-
-activity在使用时候一定要显示调用setFragemntClickListener方法
-
-## 配置发生变化
-
-运行时配置发生变化，最常见的就是屏幕发生旋转，生命周期：
-
-```
-24547-24547 W/ty: ----Fragment---onCreate----
-24547-24547 W/ty: -------onCreate------
-24547-24547 W/ty: ----Fragment---onCreateView----
-24547-24547 W/ty: ----Fragment---onActivityCreated----
-24547-24547 W/ty: ----Fragment---onCreate----
-24547-24547 W/ty: ----Fragment---onCreateView----
-24547-24547 W/ty: ----Fragment---onActivityCreated----
-24547-24547 W/ty: -------onStart------
-24547-24547 W/ty: ----Fragment---onStart----
-24547-24547 W/ty: ----Fragment---onStart----
-24547-24547 W/ty: -------onResume------
-24547-24547 W/ty: ----Fragment---onResume----
-24547-24547 W/ty: ----Fragment---onResume----
-```
-
-可以看出当屏幕旋转的时候，系统多创建出一个fragment
-
-> 当屏幕发生旋转，Activity发生重新启动，默认的Activity中的Fragment也会跟着Activity重新创建；这样造成当旋转的时候，本身存在的Fragment会重新启动，然后当执行Activity的onCreate时，又会再次实例化一个新的Fragment
-
-### 解决办法
-
-可以使用actiivty中的savedInstanceState参数来判断是否从新创建fragment：
-
-```
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.w("ty", "-------onCreate------");
-        setContentView(R.layout.activity_main);
-        if (savedInstanceState==null){
-            mFragmentOne = new MyFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            mTransaction = fragmentManager.beginTransaction();
-            mTransaction.add(R.id.fl,mFragmentOne,"replace");
-            mTransaction.commit();
-        }
-    }
-```
-
-判断一下是否有数据就可以了，生命周期：
-
-```
-27814-27814 W/ty: ----Fragment---onCreate----
-27814-27814 W/ty: -------onCreate------
-27814-27814 W/ty: ----Fragment---onCreateView----
-27814-27814 W/ty: ----Fragment---onActivityCreated----
-27814-27814 W/ty: -------onStart------
-27814-27814 W/ty: ----Fragment---onStart----
-27814-27814 W/ty: -------onResume------
-27814-27814 W/ty: ----Fragment---onResume----
-```
-
-## 扩展
-
-### FragmentPagerAdapter与FragmentStatePagerAdapter
-
-主要区别就在与对于fragment是否销毁，下面细说：
-
-FragmentPagerAdapter：对于不再需要的fragment，选择调用detach方法，仅销毁视图，并不会销毁fragment实例。
-
-FragmentStatePagerAdapter：会销毁不再需要的fragment，当当前事务提交以后，会彻底的将fragmeng从当前Activity的FragmentManager中移除，state标明，销毁时，会将其onSaveInstanceState(Bundle outState)中的bundle信息保存下来，当用户切换回来，可以通过该bundle恢复生成新的fragment，也就是说，你可以在onSaveInstanceState(Bundle outState)方法中保存一些数据，在onCreate中进行恢复创建。
-
-​	如上所说，使用FragmentStatePagerAdapter当然更省内存，但是销毁新建也是需要时间的。一般情况下，如果你是制作主页面，就3、4个Tab，那么可以选择使用FragmentPagerAdapter，如果你是用于ViewPager展示数量特别多的条目时，那么建议使用FragmentStatePagerAdapter。
-
-### Activity启动fragment
-
-模拟带有参数的启动，也就是数据从activity到fragemnt，只不过发生在fragment创建的过程中，使用newInstance模式：
-
-```
-public class ContentFragment extends Fragment  
-{  
-  
-    private String mArgument;  
-    public static final String ARGUMENT = "argument";  
-  
-    @Override  
-    public void onCreate(Bundle savedInstanceState)  
-    {  
-        super.onCreate(savedInstanceState);  
-        // mArgument = getActivity().getIntent().getStringExtra(ARGUMENT);  
-        Bundle bundle = getArguments();  
-        if (bundle != null)  
-            mArgument = bundle.getString(ARGUMENT);  
-  
-    }  
-  
-    /** 
-     * 传入需要的参数，设置给arguments 
-     * @param argument 
-     * @return 
-     */  
-    public static ContentFragment newInstance(String argument)  
-    {  
-        Bundle bundle = new Bundle();  
-        bundle.putString(ARGUMENT, argument);  
-        ContentFragment contentFragment = new ContentFragment();  
-        contentFragment.setArguments(bundle);  
-        return contentFragment;  
-    }  
-```
-
-### fragment启动特定的activity
-
-可以使用startActivityForResult和onActivityResult
-
-```
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-```
-
-### BaseFragment抽象标准代码
-
-```
-public abstract class BaseFragment extends FragmentActivity  
-{  
-    protected abstract Fragment createFragment();  
-      
-    @Override  
-    protected void onCreate(Bundle savedInstanceState)  
-    {  
-  
-        super.onCreate(savedInstanceState);  
-        setContentView(R.layout.activity_single_fragment);  
-      
-        FragmentManager fm = getSupportFragmentManager();  
-        Fragment fragment =fm.findFragmentById(R.id.id_fragment_container);  
-          
-        if(fragment == null )  
-        {  
-            fragment = createFragment() ;  
-              
-            fm.beginTransaction().add(R.id.id_fragment_container,fragment).commit();  
-        }  
-    }  
-      
-}  
-```
-
-子类：
-
-```
-public class ContentActivity extends BaseFragment  
-{  
-    private ContentFragment mContentFragment;  
-  
-    @Override  
-    protected Fragment createFragment()  
-    {  
-        String title = getIntent().getStringExtra(ContentFragment.ARGUMENT);  
-  
-        mContentFragment = ContentFragment.newInstance(title);  
-        return mContentFragment;  
-    }  
-} 
 ```
 
 ## 参考文献
