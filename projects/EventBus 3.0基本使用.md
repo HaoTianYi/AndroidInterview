@@ -1,26 +1,26 @@
-# EventBus 3.0åŸºæœ¬ä½¿ç”¨
+# EventBus 3.0»ù±¾Ê¹ÓÃ
 
 [TOC]
 
-## ç®€ä»‹
+## ¼ò½é
 
-EventBusæ˜¯é’ˆä¸€æ¬¾å¯¹Androidçš„å‘å¸ƒ/è®¢é˜…äº‹ä»¶æ€»çº¿ã€‚å®ƒå¯ä»¥è®©æˆ‘ä»¬å¾ˆè½»æ¾çš„å®žçŽ°åœ¨Androidå„ä¸ªç»„ä»¶ä¹‹é—´ä¼ é€’æ¶ˆæ¯ï¼Œå¹¶ä¸”ä»£ç çš„å¯è¯»æ€§æ›´å¥½ï¼Œè€¦åˆåº¦æ›´ä½Žã€‚
+EventBusÊÇÕëÒ»¿î¶ÔAndroidµÄ·¢²¼/¶©ÔÄÊÂ¼þ×ÜÏß¡£Ëü¿ÉÒÔÈÃÎÒÃÇºÜÇáËÉµÄÊµÏÖÔÚAndroid¸÷¸ö×é¼þÖ®¼ä´«µÝÏûÏ¢£¬²¢ÇÒ´úÂëµÄ¿É¶ÁÐÔ¸üºÃ£¬ñîºÏ¶È¸üµÍ¡£
 
-![EventBus-Publish-Subscribe](C:\Users\SiMaXiaoChen\Desktop\EventBus-Publish-Subscribe.png)
+![EventBus-Publish-Subscribe](http://oaxelf1sk.bkt.clouddn.com/EventBus-Publish-Subscribe.png)
 
-## ä½¿ç”¨
+## Ê¹ÓÃ
 
-ä¸€å…±å››ä¸ªæ­¥éª¤ï¼š
+Ò»¹²ËÄ¸ö²½Öè£º
 
-### æ·»åŠ ä¾èµ–
+### Ìí¼ÓÒÀÀµ
 
 ```
 compile 'org.greenrobot:eventbus:3.0.0'
 ```
 
-### å¢žåŠ è‡ªå®šä¹‰çš„äº‹ä»¶
+### Ôö¼Ó×Ô¶¨ÒåµÄÊÂ¼þ
 
-ä¸ç”¨ç»§æ‰¿å’Œå®žçŽ°ä»»ä½•ç±»æˆ–è€…æ–¹æ³•ï¼š
+²»ÓÃ¼Ì³ÐºÍÊµÏÖÈÎºÎÀà»òÕß·½·¨£º
 
 ```
 public class MessageEvent {
@@ -34,9 +34,9 @@ public class MessageEvent {
 }
 ```
 
-### å¢žåŠ æ³¨å†Œè€…
+### Ôö¼Ó×¢²áÕß
 
-å¹¶ä¸”å¢žåŠ ä¸€ä¸ªæ¶ˆæ¯çš„å¤„ç†è€…ï¼Œä½¿ç”¨@Subscribeæ³¨è§£
+²¢ÇÒÔö¼ÓÒ»¸öÏûÏ¢µÄ´¦ÀíÕß£¬Ê¹ÓÃ@Subscribe×¢½â
 
 ```
     @Override
@@ -58,30 +58,30 @@ public class MessageEvent {
     }
 ```
 
-### å‘å¸ƒä¿¡æ¯
+### ·¢²¼ÐÅÏ¢
 
 ```
 EventBus.getDefault().post(new MessageEvent("doubi",12));
 ```
 
-## çº¿ç¨‹æ¨¡å¼
+## Ïß³ÌÄ£Ê½
 
-åœ¨EventBusä¸­çš„è§‚å¯Ÿè€…é€šå¸¸æœ‰å››ç§çº¿ç¨‹æ¨¡åž‹ï¼Œåˆ†åˆ«æ˜¯PostThreadï¼ˆé»˜è®¤ï¼‰ã€MainThreadã€BackgroundThreadä¸ŽAsyncã€‚
+ÔÚEventBusÖÐµÄ¹Û²ìÕßÍ¨³£ÓÐËÄÖÖÏß³ÌÄ£ÐÍ£¬·Ö±ðÊÇPostThread£¨Ä¬ÈÏ£©¡¢MainThread¡¢BackgroundThreadÓëAsync¡£
 
-- PostThreadï¼šå¦‚æžœä½¿ç”¨äº‹ä»¶å¤„ç†å‡½æ•°æŒ‡å®šäº†çº¿ç¨‹æ¨¡åž‹ä¸ºPostThreadï¼Œé‚£ä¹ˆè¯¥äº‹ä»¶åœ¨å“ªä¸ªçº¿ç¨‹å‘å¸ƒå‡ºæ¥çš„ï¼Œäº‹ä»¶å¤„ç†å‡½æ•°å°±ä¼šåœ¨è¿™ä¸ªçº¿ç¨‹ä¸­è¿è¡Œï¼Œä¹Ÿå°±æ˜¯è¯´å‘å¸ƒäº‹ä»¶å’ŒæŽ¥æ”¶äº‹ä»¶åœ¨åŒä¸€ä¸ªçº¿ç¨‹ã€‚åœ¨çº¿ç¨‹æ¨¡åž‹ä¸ºPostThreadçš„äº‹ä»¶å¤„ç†å‡½æ•°ä¸­å°½é‡é¿å…æ‰§è¡Œè€—æ—¶æ“ä½œï¼Œå› ä¸ºå®ƒä¼šé˜»å¡žäº‹ä»¶çš„ä¼ é€’ï¼Œç”šè‡³æœ‰å¯èƒ½ä¼šå¼•èµ·ANRã€‚
-- MainThreadï¼šå¦‚æžœä½¿ç”¨äº‹ä»¶å¤„ç†å‡½æ•°æŒ‡å®šäº†çº¿ç¨‹æ¨¡åž‹ä¸ºMainThreadï¼Œé‚£ä¹ˆä¸è®ºäº‹ä»¶æ˜¯åœ¨å“ªä¸ªçº¿ç¨‹ä¸­å‘å¸ƒå‡ºæ¥çš„ï¼Œè¯¥äº‹ä»¶å¤„ç†å‡½æ•°éƒ½ä¼šåœ¨UIçº¿ç¨‹ä¸­æ‰§è¡Œã€‚è¯¥æ–¹æ³•å¯ä»¥ç”¨æ¥æ›´æ–°UIï¼Œä½†æ˜¯ä¸èƒ½å¤„ç†è€—æ—¶æ“ä½œã€‚
-- BackgroundThreadï¼šå¦‚æžœä½¿ç”¨äº‹ä»¶å¤„ç†å‡½æ•°æŒ‡å®šäº†çº¿ç¨‹æ¨¡åž‹ä¸ºBackgroundThreadï¼Œé‚£ä¹ˆå¦‚æžœäº‹ä»¶æ˜¯åœ¨UIçº¿ç¨‹ä¸­å‘å¸ƒå‡ºæ¥çš„ï¼Œé‚£ä¹ˆè¯¥äº‹ä»¶å¤„ç†å‡½æ•°å°±ä¼šåœ¨æ–°çš„çº¿ç¨‹ä¸­è¿è¡Œï¼Œå¦‚æžœäº‹ä»¶æœ¬æ¥å°±æ˜¯å­çº¿ç¨‹ä¸­å‘å¸ƒå‡ºæ¥çš„ï¼Œé‚£ä¹ˆè¯¥äº‹ä»¶å¤„ç†å‡½æ•°ç›´æŽ¥åœ¨å‘å¸ƒäº‹ä»¶çš„çº¿ç¨‹ä¸­æ‰§è¡Œã€‚åœ¨æ­¤äº‹ä»¶å¤„ç†å‡½æ•°ä¸­ç¦æ­¢è¿›è¡ŒUIæ›´æ–°æ“ä½œã€‚
-- Asyncï¼šå¦‚æžœä½¿ç”¨äº‹ä»¶å¤„ç†å‡½æ•°æŒ‡å®šäº†çº¿ç¨‹æ¨¡åž‹ä¸ºAsyncï¼Œé‚£ä¹ˆæ— è®ºäº‹ä»¶åœ¨å“ªä¸ªçº¿ç¨‹å‘å¸ƒï¼Œè¯¥äº‹ä»¶å¤„ç†å‡½æ•°éƒ½ä¼šåœ¨æ–°å»ºçš„å­çº¿ç¨‹ä¸­æ‰§è¡Œã€‚åŒæ ·ï¼Œæ­¤äº‹ä»¶å¤„ç†å‡½æ•°ä¸­ç¦æ­¢è¿›è¡ŒUIæ›´æ–°æ“ä½œã€‚
+- PostThread£ºÈç¹ûÊ¹ÓÃÊÂ¼þ´¦Àíº¯ÊýÖ¸¶¨ÁËÏß³ÌÄ£ÐÍÎªPostThread£¬ÄÇÃ´¸ÃÊÂ¼þÔÚÄÄ¸öÏß³Ì·¢²¼³öÀ´µÄ£¬ÊÂ¼þ´¦Àíº¯Êý¾Í»áÔÚÕâ¸öÏß³ÌÖÐÔËÐÐ£¬Ò²¾ÍÊÇËµ·¢²¼ÊÂ¼þºÍ½ÓÊÕÊÂ¼þÔÚÍ¬Ò»¸öÏß³Ì¡£ÔÚÏß³ÌÄ£ÐÍÎªPostThreadµÄÊÂ¼þ´¦Àíº¯ÊýÖÐ¾¡Á¿±ÜÃâÖ´ÐÐºÄÊ±²Ù×÷£¬ÒòÎªËü»á×èÈûÊÂ¼þµÄ´«µÝ£¬ÉõÖÁÓÐ¿ÉÄÜ»áÒýÆðANR¡£
+- MainThread£ºÈç¹ûÊ¹ÓÃÊÂ¼þ´¦Àíº¯ÊýÖ¸¶¨ÁËÏß³ÌÄ£ÐÍÎªMainThread£¬ÄÇÃ´²»ÂÛÊÂ¼þÊÇÔÚÄÄ¸öÏß³ÌÖÐ·¢²¼³öÀ´µÄ£¬¸ÃÊÂ¼þ´¦Àíº¯Êý¶¼»áÔÚUIÏß³ÌÖÐÖ´ÐÐ¡£¸Ã·½·¨¿ÉÒÔÓÃÀ´¸üÐÂUI£¬µ«ÊÇ²»ÄÜ´¦ÀíºÄÊ±²Ù×÷¡£
+- BackgroundThread£ºÈç¹ûÊ¹ÓÃÊÂ¼þ´¦Àíº¯ÊýÖ¸¶¨ÁËÏß³ÌÄ£ÐÍÎªBackgroundThread£¬ÄÇÃ´Èç¹ûÊÂ¼þÊÇÔÚUIÏß³ÌÖÐ·¢²¼³öÀ´µÄ£¬ÄÇÃ´¸ÃÊÂ¼þ´¦Àíº¯Êý¾Í»áÔÚÐÂµÄÏß³ÌÖÐÔËÐÐ£¬Èç¹ûÊÂ¼þ±¾À´¾ÍÊÇ×ÓÏß³ÌÖÐ·¢²¼³öÀ´µÄ£¬ÄÇÃ´¸ÃÊÂ¼þ´¦Àíº¯ÊýÖ±½ÓÔÚ·¢²¼ÊÂ¼þµÄÏß³ÌÖÐÖ´ÐÐ¡£ÔÚ´ËÊÂ¼þ´¦Àíº¯ÊýÖÐ½ûÖ¹½øÐÐUI¸üÐÂ²Ù×÷¡£
+- Async£ºÈç¹ûÊ¹ÓÃÊÂ¼þ´¦Àíº¯ÊýÖ¸¶¨ÁËÏß³ÌÄ£ÐÍÎªAsync£¬ÄÇÃ´ÎÞÂÛÊÂ¼þÔÚÄÄ¸öÏß³Ì·¢²¼£¬¸ÃÊÂ¼þ´¦Àíº¯Êý¶¼»áÔÚÐÂ½¨µÄ×ÓÏß³ÌÖÐÖ´ÐÐ¡£Í¬Ñù£¬´ËÊÂ¼þ´¦Àíº¯ÊýÖÐ½ûÖ¹½øÐÐUI¸üÐÂ²Ù×÷¡£
 
-## ç²˜æ€§äº‹ä»¶
+## Õ³ÐÔÊÂ¼þ
 
-ç®€å•è®²ï¼Œå°±æ˜¯åœ¨å‘é€äº‹ä»¶ä¹‹åŽå†è®¢é˜…è¯¥äº‹ä»¶ä¹Ÿèƒ½æ”¶åˆ°è¯¥äº‹ä»¶ï¼Œç›¸æ¯”äºŽæ™®é€šçš„äº‹ä»¶åªæ˜¯å‘é€å’Œå¤„ç†å‡½æ•°ä¸åŒï¼š
+¼òµ¥½²£¬¾ÍÊÇÔÚ·¢ËÍÊÂ¼þÖ®ºóÔÙ¶©ÔÄ¸ÃÊÂ¼þÒ²ÄÜÊÕµ½¸ÃÊÂ¼þ£¬Ïà±ÈÓÚÆÕÍ¨µÄÊÂ¼þÖ»ÊÇ·¢ËÍºÍ´¦Àíº¯Êý²»Í¬£º
 
 ```
 EventBus.getDefault().postSticky(new MessageEvent("test"));
 ```
 
-å¤„ç†å‡½æ•°ï¼š
+´¦Àíº¯Êý£º
 
 ```
 @Subscribe(sticky = true)
@@ -90,7 +90,7 @@ public void XXX(MessageEvent messageEvent) {
 }
 ```
 
-## å‚è€ƒ
+## ²Î¿¼
 
 http://www.liuling123.com/2016/01/EventBus-explain.html
 
