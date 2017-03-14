@@ -329,5 +329,6 @@ Observable.from(students)
 
 `flatMap()` 也常用于嵌套的异步操作
 
+## 引用
 
-
+本文整理自：http://gank.io/post/560e15be2dca930e00da1083#toc_8
