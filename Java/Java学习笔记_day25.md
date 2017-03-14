@@ -1,42 +1,42 @@
-# JavaÑ§Ï°±Ê¼Ç_day25
+# Javaå­¦ä¹ ç¬”è®°_day25
 
 [TOC]
 
 ## GUI
 
-Graphical User Interface(Í¼ĞÎÓÃ»§½Ó¿Ú)
+Graphical User Interface(å›¾å½¢ç”¨æˆ·æ¥å£)
 
-### APIËùÔÚµÄ°ü
+### APIæ‰€åœ¨çš„åŒ…
 
-java.awt£ºAbstract Window ToolKit (³éÏó´°¿Ú¹¤¾ß°ü)£¬ĞèÒªµ÷ÓÃ±¾µØÏµÍ³·½·¨ÊµÏÖ¹¦ÄÜ¡£ÊôÖØÁ¿¼¶¿Ø¼ş¡£
-javax.swing£ºÔÚAWTµÄ»ù´¡ÉÏ£¬½¨Á¢µÄÒ»Ì×Í¼ĞÎ½çÃæÏµÍ³£¬ÆäÖĞÌá¹©ÁË¸ü¶àµÄ×é¼ş£¬¶øÇÒÍêÈ«ÓÉJavaÊµÏÖ¡£ÔöÇ¿ÁËÒÆÖ²ĞÔ£¬ÊôÇáÁ¿¼¶¿Ø¼ş¡£
+java.awtï¼šAbstract Window ToolKit (æŠ½è±¡çª—å£å·¥å…·åŒ…)ï¼Œéœ€è¦è°ƒç”¨æœ¬åœ°ç³»ç»Ÿæ–¹æ³•å®ç°åŠŸèƒ½ã€‚å±é‡é‡çº§æ§ä»¶ã€‚
+javax.swingï¼šåœ¨AWTçš„åŸºç¡€ä¸Šï¼Œå»ºç«‹çš„ä¸€å¥—å›¾å½¢ç•Œé¢ç³»ç»Ÿï¼Œå…¶ä¸­æä¾›äº†æ›´å¤šçš„ç»„ä»¶ï¼Œè€Œä¸”å®Œå…¨ç”±Javaå®ç°ã€‚å¢å¼ºäº†ç§»æ¤æ€§ï¼Œå±è½»é‡çº§æ§ä»¶ã€‚
 
-javaÊÇjavaµÄ»ù±¾°ü£¬javaxÊÇÀ©Õ¹°ü
+javaæ˜¯javaçš„åŸºæœ¬åŒ…ï¼Œjavaxæ˜¯æ‰©å±•åŒ…
 
-### GUI¼Ì³ĞÌåÏµ
+### GUIç»§æ‰¿ä½“ç³»
 
 ![gui](http://oaxelf1sk.bkt.clouddn.com/gui.png)
 
-×ó±ßµÄ×é¼şÊÇÈİÆ÷×é¼ş£¬ÓÒ±ßÊÇµ¥¸ö×é¼ş
+å·¦è¾¹çš„ç»„ä»¶æ˜¯å®¹å™¨ç»„ä»¶ï¼Œå³è¾¹æ˜¯å•ä¸ªç»„ä»¶
 
 ### Frame
 
 ```java
-		Frame f = new Frame("ÁÖÇàÏ¼");
+		Frame f = new Frame("æ—é’éœ");
 
-		// ÉèÖÃ´°Ìå±êÌâ
+		// è®¾ç½®çª—ä½“æ ‡é¢˜
 		f.setTitle("HelloWorld");
-		// ÉèÖÃ´°Ìå´óĞ¡
-		f.setSize(400, 300); // µ¥Î»£ºÏñËØ
-		// ÉèÖÃ´°ÌåÎ»ÖÃ
+		// è®¾ç½®çª—ä½“å¤§å°
+		f.setSize(400, 300); // å•ä½ï¼šåƒç´ 
+		// è®¾ç½®çª—ä½“ä½ç½®
 		f.setLocation(400, 200);
 
-		// µ÷ÓÃÒ»¸ö·½·¨£¬ÉèÖÃÈÃ´°Ìå¿É¼û
+		// è°ƒç”¨ä¸€ä¸ªæ–¹æ³•ï¼Œè®¾ç½®è®©çª—ä½“å¯è§
 		f.setVisible(true);
 
 ```
 
-setVisible·½·¨µÄµ÷ÓÃÒªÔÚf.setSize(400, 300)µÈÖ®Ç°
+setVisibleæ–¹æ³•çš„è°ƒç”¨è¦åœ¨f.setSize(400, 300)ç­‰ä¹‹å‰
 
 ```java
 		 Dimension d = new Dimension(400, 300);
@@ -45,24 +45,24 @@ setVisible·½·¨µÄµ÷ÓÃÒªÔÚf.setSize(400, 300)µÈÖ®Ç°
 		 // Point(int x, int y)
 		 Point p = new Point(400, 200);
 		 f.setLocation(p);
-		 //Ò»¸ö·½·¨¸ã¶¨
+		 //ä¸€ä¸ªæ–¹æ³•æå®š
 		f.setBounds(400, 200, 400, 300);
 ```
 
-#### ÊÂ¼ş¼àÌı
+#### äº‹ä»¶ç›‘å¬
 
 ```java
-		// ´´½¨´°Ìå¶ÔÏó
-		Frame f = new Frame("´°Ìå¹Ø±Õ°¸Àı");
+		// åˆ›å»ºçª—ä½“å¯¹è±¡
+		Frame f = new Frame("çª—ä½“å…³é—­æ¡ˆä¾‹");
 
-		// ÉèÖÃ´°ÌåÊôĞÔ
+		// è®¾ç½®çª—ä½“å±æ€§
 		f.setBounds(400, 200, 400, 300);
 
-		// ÈÃ´°Ìå¹Ø±Õ
-		//ÊÂ¼şÔ´
-		//ÊÂ¼ş£º¶Ô´°ÌåµÄ´¦Àí
-		//ÊÂ¼ş´¦Àí£º¹Ø±Õ´°¿Ú(System.exit(0));
-		//ÊÂ¼ş¼àÌı
+		// è®©çª—ä½“å…³é—­
+		//äº‹ä»¶æº
+		//äº‹ä»¶ï¼šå¯¹çª—ä½“çš„å¤„ç†
+		//äº‹ä»¶å¤„ç†ï¼šå…³é—­çª—å£(System.exit(0));
+		//äº‹ä»¶ç›‘å¬
 //		f.addWindowListener(new WindowListener() {
 //			@Override
 //			public void windowOpened(WindowEvent e) {
@@ -94,7 +94,7 @@ setVisible·½·¨µÄµ÷ÓÃÒªÔÚf.setSize(400, 300)µÈÖ®Ç°
 //			}
 //		});
 		
-		//ÓÃÊÊÅäÆ÷Àà¸Ä½ø
+		//ç”¨é€‚é…å™¨ç±»æ”¹è¿›
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -102,43 +102,43 @@ setVisible·½·¨µÄµ÷ÓÃÒªÔÚf.setSize(400, 300)µÈÖ®Ç°
 			}
 		});
 
-		// ÉèÖÃ´°Ìå¿É¼û
+		// è®¾ç½®çª—ä½“å¯è§
 		f.setVisible(true);
 	}
 
 ```
-ÕâÀïµÄÊÂ¼ş¼àÌıÔËÓÃÁËÊÊÅäÆ÷Ä£Ê½
+è¿™é‡Œçš„äº‹ä»¶ç›‘å¬è¿ç”¨äº†é€‚é…å™¨æ¨¡å¼
 
 
 
-## ´°Ìå²¼¾Ö
+## çª—ä½“å¸ƒå±€
 
-![°ÑÎÄ±¾¿òÊı¾İ×ªÒÆµ½ÎÄ±¾Óò](http://oaxelf1sk.bkt.clouddn.com/°ÑÎÄ±¾¿òÊı¾İ×ªÒÆµ½ÎÄ±¾Óò.jpg)
+![æŠŠæ–‡æœ¬æ¡†æ•°æ®è½¬ç§»åˆ°æ–‡æœ¬åŸŸ](http://oaxelf1sk.bkt.clouddn.com/æŠŠæ–‡æœ¬æ¡†æ•°æ®è½¬ç§»åˆ°æ–‡æœ¬åŸŸ.jpg)
 
 
 
 ```java
 public class FrameDemo {
 	public static void main(String[] args) {
-		// ´´½¨´°Ìå¶ÔÏó
-		Frame f = new Frame("Êı¾İ×ªÒÆ");
-		// ÉèÖÃ´°ÌåÊôĞÔºÍ²¼¾Ö
+		// åˆ›å»ºçª—ä½“å¯¹è±¡
+		Frame f = new Frame("æ•°æ®è½¬ç§»");
+		// è®¾ç½®çª—ä½“å±æ€§å’Œå¸ƒå±€
 		f.setBounds(400, 200, 400, 300);
 		f.setLayout(new FlowLayout());
 
-		// ´´½¨ÎÄ±¾¿ò
+		// åˆ›å»ºæ–‡æœ¬æ¡†
 		final TextField tf = new TextField(20);
-		// ´´½¨°´Å¥
-		Button bu = new Button("Êı¾İ×ªÒÆ");
-		// ´´½¨ÎÄ±¾Óò
+		// åˆ›å»ºæŒ‰é’®
+		Button bu = new Button("æ•°æ®è½¬ç§»");
+		// åˆ›å»ºæ–‡æœ¬åŸŸ
 		final TextArea ta = new TextArea(10, 40);
 
-		// °Ñ×é¼şÌí¼Óµ½´°Ìå
+		// æŠŠç»„ä»¶æ·»åŠ åˆ°çª—ä½“
 		f.add(tf);
 		f.add(bu);
 		f.add(ta);
 
-		// ÉèÖÃ´°Ìå¹Ø±Õ
+		// è®¾ç½®çª—ä½“å…³é—­
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -146,38 +146,38 @@ public class FrameDemo {
 			}
 		});
 
-		// ¶Ô°´Å¥Ìí¼ÓÊÂ¼ş
+		// å¯¹æŒ‰é’®æ·»åŠ äº‹ä»¶
 		bu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// »ñÈ¡ÎÄ±¾¿òµÄÖµ
+				// è·å–æ–‡æœ¬æ¡†çš„å€¼
 				String tf_str = tf.getText().trim();
-				// Çå¿ÕÊı¾İ
+				// æ¸…ç©ºæ•°æ®
 				tf.setText("");
 
-				// ÉèÖÃ¸øÎÄ±¾Óò
+				// è®¾ç½®ç»™æ–‡æœ¬åŸŸ
 				// ta.setText(tf_str);
-				// ×·¼ÓºÍ»»ĞĞ
+				// è¿½åŠ å’Œæ¢è¡Œ
 				ta.append(tf_str + "\r\n");
 				
-				//»ñÈ¡¹â±ê
+				//è·å–å…‰æ ‡
 				tf.requestFocus();
 			}
 		});
 
-		// ÉèÖÃ´°ÌåÏÔÊ¾
+		// è®¾ç½®çª—ä½“æ˜¾ç¤º
 		f.setVisible(true);
 	}
 }
 ```
 
-×¢Òâ£ºfinal TextField tf = new TextField(20);µÄfinalĞŞÊÎ·û£¬¾Ö²¿ÄÚ²¿Àà·ÃÎÊ¾Ö²¿±äÁ¿£¬±äÁ¿Ò»¶¨ÒªÊ¹ÓÃfinalĞŞÊÎ
+æ³¨æ„ï¼šfinal TextField tf = new TextField(20);çš„finalä¿®é¥°ç¬¦ï¼Œå±€éƒ¨å†…éƒ¨ç±»è®¿é—®å±€éƒ¨å˜é‡ï¼Œå˜é‡ä¸€å®šè¦ä½¿ç”¨finalä¿®é¥°
 
-## ÊÊÅäÆ÷Ä£Ê½
+## é€‚é…å™¨æ¨¡å¼
 
 ```java
 /*
- * Õë¶ÔÓÃ»§²Ù×÷µÄËÄÖÖ¹¦ÄÜ
+ * é’ˆå¯¹ç”¨æˆ·æ“ä½œçš„å››ç§åŠŸèƒ½
  */
 public interface UserDao {
 	public abstract void add();
@@ -211,50 +211,50 @@ public abstract class UserAdapter implements UserDao {
 public class UserDaoImpl2 extends UserAdapter {
 	@Override
 	public void add() {
-		System.out.println("Ìí¼Ó¹¦ÄÜ");
+		System.out.println("æ·»åŠ åŠŸèƒ½");
 	}
 }
 
 /*
- * ÎÊÌâ£º
- * 		½Ó¿Ú(·½·¨±È½Ï¶à) -- ÊµÏÖÀà(½ö½öÊ¹ÓÃÒ»¸ö£¬Ò²µÃ°ÑÆäËûµÄÊµÏÖ¸øÌá¹©ÁË£¬ÄÄÅÂÊÇ¿ÕÊµÏÖ)
- * 		Ì«Âé·³ÁË¡£
- * ½â¾ö·½°¸£º
- * 		½Ó¿Ú(·½·¨±È½Ï¶à) -- ÊÊÅäÆ÷Àà(ÊµÏÖ½Ó¿Ú,½ö½ö¿ÕÊµÏÖ) -- ÊµÏÖÀà(ÓÃÄÄ¸öÖØĞ´ÄÄ¸ö)
+ * é—®é¢˜ï¼š
+ * 		æ¥å£(æ–¹æ³•æ¯”è¾ƒå¤š) -- å®ç°ç±»(ä»…ä»…ä½¿ç”¨ä¸€ä¸ªï¼Œä¹Ÿå¾—æŠŠå…¶ä»–çš„å®ç°ç»™æä¾›äº†ï¼Œå“ªæ€•æ˜¯ç©ºå®ç°)
+ * 		å¤ªéº»çƒ¦äº†ã€‚
+ * è§£å†³æ–¹æ¡ˆï¼š
+ * 		æ¥å£(æ–¹æ³•æ¯”è¾ƒå¤š) -- é€‚é…å™¨ç±»(å®ç°æ¥å£,ä»…ä»…ç©ºå®ç°) -- å®ç°ç±»(ç”¨å“ªä¸ªé‡å†™å“ªä¸ª)
  */
 public class UserDaoDemo {
 	public static void main(String[] args) {
-		// ÎÒÃ»ÓĞËµÎÒÃÇĞèÒªËÄÖÖ¹¦ÄÜ¶¼ÊµÏÖ°¡¡£
+		// æˆ‘æ²¡æœ‰è¯´æˆ‘ä»¬éœ€è¦å››ç§åŠŸèƒ½éƒ½å®ç°å•Šã€‚
 		UserDao ud2 = new UserDaoImpl2();
 		ud2.add();
 	}
 }
 ```
 
-## Á·Ï°
+## ç»ƒä¹ 
 
 ![qq](http://oaxelf1sk.bkt.clouddn.com/qq.png)
 
 ```java
 /*
- * ÄãÊäÈëµÄÈç¹ûÊÇ·ÇÊı×Ö×Ö·û£¬¾ÍÈ¡ÏûÄã¼üÅÌÂ¼ÈëµÄĞ§¹û¡£
+ * ä½ è¾“å…¥çš„å¦‚æœæ˜¯éæ•°å­—å­—ç¬¦ï¼Œå°±å–æ¶ˆä½ é”®ç›˜å½•å…¥çš„æ•ˆæœã€‚
  */
 public class FrameDemo {
 	public static void main(String[] args) {
-		// ´´½¨´°Ìå¶ÔÏó²¢ÉèÖÃÊôĞÔ
-		Frame f = new Frame("²»ÄÜÊäÈë·ÇÊı×Ö×Ö·û");
+		// åˆ›å»ºçª—ä½“å¯¹è±¡å¹¶è®¾ç½®å±æ€§
+		Frame f = new Frame("ä¸èƒ½è¾“å…¥éæ•°å­—å­—ç¬¦");
 		f.setBounds(400, 200, 400, 300);
 		f.setLayout(new FlowLayout());
 
-		// ´´½¨Label±êÇ©¶ÔÏó
-		Label label = new Label("ÇëÊäÈëÄãµÄQQºÅÂë£¬²»ÄÜÊÇ·ÇÊı×Ö£¬²»ĞÅÄãÊÔÊÔ");
+		// åˆ›å»ºLabelæ ‡ç­¾å¯¹è±¡
+		Label label = new Label("è¯·è¾“å…¥ä½ çš„QQå·ç ï¼Œä¸èƒ½æ˜¯éæ•°å­—ï¼Œä¸ä¿¡ä½ è¯•è¯•");
 		TextField tf = new TextField(40);
 
-		// Ìí¼Óµ½´°ÌåÉÏ
+		// æ·»åŠ åˆ°çª—ä½“ä¸Š
 		f.add(label);
 		f.add(tf);
 
-		// ÉèÖÃ´°Ìå¹Ø±Õ
+		// è®¾ç½®çª—ä½“å…³é—­
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -262,12 +262,12 @@ public class FrameDemo {
 			}
 		});
 
-		// ¸øÎÄ±¾¿òÌí¼ÓÊÂ¼ş
+		// ç»™æ–‡æœ¬æ¡†æ·»åŠ äº‹ä»¶
 		tf.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// Èç¹ûÄãÈ¡µÃµÄ×Ö·û²»ÊÇÊı×Ö×Ö·û¾ÍÈ¡ÏûÊÂ¼ş
-				// Ë¼Â·£ºÏÈ»ñÈ¡×Ö·û£¬ÅĞ¶Ï×Ö·û£¬È¡ÏûÊÂ¼ş
+				// å¦‚æœä½ å–å¾—çš„å­—ç¬¦ä¸æ˜¯æ•°å­—å­—ç¬¦å°±å–æ¶ˆäº‹ä»¶
+				// æ€è·¯ï¼šå…ˆè·å–å­—ç¬¦ï¼Œåˆ¤æ–­å­—ç¬¦ï¼Œå–æ¶ˆäº‹ä»¶
 				// char getKeyChar()  
 				char ch = e.getKeyChar();
 //				System.out.println(ch);
@@ -277,7 +277,7 @@ public class FrameDemo {
 			}
 		});
 
-		// ÉèÖÃ´°Ìå¿É¼û
+		// è®¾ç½®çª—ä½“å¯è§
 		f.setVisible(true);
 	}
 }

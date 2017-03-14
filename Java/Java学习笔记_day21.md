@@ -1,104 +1,104 @@
-# JavaÑ§Ï°±Ê¼Ç_day21
+# Javaå­¦ä¹ ç¬”è®°_day21
 
 [TOC]
 
-## ±àÂë±í
+## ç¼–ç è¡¨
 
-ÓÉÏÖÊµÊÀ½çµÄ×Ö·ûºÍ¶ÔÓ¦µÄ×Ö·û¹¹³É
+ç”±ç°å®ä¸–ç•Œçš„å­—ç¬¦å’Œå¯¹åº”çš„å­—ç¬¦æ„æˆ
 
-### ³£¼û±àÂë±í
+### å¸¸è§ç¼–ç è¡¨
 
-|       ±àÂë±í       |      Î»Êı      |
+|       ç¼–ç è¡¨       |      ä½æ•°      |
 | :-------------: | :----------: |
-|      ASCII      | Ò»¸ö×Ö½ÚµÄ7Î»×î¶à128 |
-| ISO-8859-1À­¶¡±àÂë±í | Ò»¸ö×Ö½Ú8Î»×î¶à256  |
-|    GB2312¼òÌå     |              |
-|   GBK¼òÌåÖĞÎÄµÄÉı¼¶°æ   |              |
-|    GB18030Âë±í    |   GBKµÄÈ¡´ú°æ±¾   |
-|   BIG-5·±Ìå×Ö±àÂë±í   |    Ë×³Æ´óÎåÂë     |
-|  Unicode¹ú¼Ê±ê×¼Âë   |     2¸ö×Ö½Ú     |
-|      UTF-8      |   ×î¶àÓÃ3¸ö×Ö½Ú    |
+|      ASCII      | ä¸€ä¸ªå­—èŠ‚çš„7ä½æœ€å¤š128 |
+| ISO-8859-1æ‹‰ä¸ç¼–ç è¡¨ | ä¸€ä¸ªå­—èŠ‚8ä½æœ€å¤š256  |
+|    GB2312ç®€ä½“     |              |
+|   GBKç®€ä½“ä¸­æ–‡çš„å‡çº§ç‰ˆ   |              |
+|    GB18030ç è¡¨    |   GBKçš„å–ä»£ç‰ˆæœ¬   |
+|   BIG-5ç¹ä½“å­—ç¼–ç è¡¨   |    ä¿—ç§°å¤§äº”ç      |
+|  Unicodeå›½é™…æ ‡å‡†ç    |     2ä¸ªå­—èŠ‚     |
+|      UTF-8      |   æœ€å¤šç”¨3ä¸ªå­—èŠ‚    |
 
-> UTF-8ÄÜÓÃÒ»¸ö¾ÍÓÃASCII£¬Á½¸ö¾ÍÓÃUnicode£¬×îºóÓÃÈı¸ö×Ö½Ú
+> UTF-8èƒ½ç”¨ä¸€ä¸ªå°±ç”¨ASCIIï¼Œä¸¤ä¸ªå°±ç”¨Unicodeï¼Œæœ€åç”¨ä¸‰ä¸ªå­—èŠ‚
 
-ÏµÍ³Ä¬ÈÏ×Ö·û¼¯ÊÇGBK
+ç³»ç»Ÿé»˜è®¤å­—ç¬¦é›†æ˜¯GBK
 
-stringºÍbytes¿ÉÒÔÊ¹ÓÃ×Ô¶¨ÒåµÄ×Ö·û¼¯À´Ïà»¥×ª»»£º
+stringå’Œbyteså¯ä»¥ä½¿ç”¨è‡ªå®šä¹‰çš„å­—ç¬¦é›†æ¥ç›¸äº’è½¬æ¢ï¼š
 
 ```java
-		String s = "ÄãºÃ";
+		String s = "ä½ å¥½";
 		// String -- byte[]		
 		byte[] bys1 = s.getBytes("GBK");// [-60, -29, -70, -61]
 		
 		System.out.println(Arrays.toString(bys));
 
 		// byte[] -- String
-		String ss = new String(bys); // ÄãºÃ
-		String ss1 = new String(bys, "GBK"); // ÄãºÃ		
+		String ss = new String(bys); // ä½ å¥½
+		String ss1 = new String(bys, "GBK"); // ä½ å¥½		
 ```
 
-## ×Ö·ûÁ÷OutputStreamWriter
+## å­—ç¬¦æµOutputStreamWriter
 
-### ¹¹Ôì·½·¨
+### æ„é€ æ–¹æ³•
 
 ```java
-OutputStreamWriter(OutputStream out):¸ù¾İÄ¬ÈÏ±àÂë°Ñ×Ö½ÚÁ÷µÄÊı¾İ×ª»»Îª×Ö·ûÁ÷
-OutputStreamWriter(OutputStream out,String charsetName):¸ù¾İÖ¸¶¨±àÂë°Ñ×Ö½ÚÁ÷Êı¾İ×ª»»Îª×Ö·ûÁ÷
+OutputStreamWriter(OutputStream out):æ ¹æ®é»˜è®¤ç¼–ç æŠŠå­—èŠ‚æµçš„æ•°æ®è½¬æ¢ä¸ºå­—ç¬¦æµ
+OutputStreamWriter(OutputStream out,String charsetName):æ ¹æ®æŒ‡å®šç¼–ç æŠŠå­—èŠ‚æµæ•°æ®è½¬æ¢ä¸ºå­—ç¬¦æµ
 ```
 
-### ³ÉÔ±·½·¨
+### æˆå‘˜æ–¹æ³•
 
 ```java
-  public void write(int c):Ğ´Ò»¸ö×Ö·û
-  public void write(char[] cbuf):Ğ´Ò»¸ö×Ö·ûÊı×é
-  public void write(char[] cbuf,int off,int len):Ğ´Ò»¸ö×Ö·ûÊı×éµÄÒ»²¿·Ö
-  public void write(String str):Ğ´Ò»¸ö×Ö·û´®
-  public void write(String str,int off,int len):Ğ´Ò»¸ö×Ö·û´®µÄÒ»²¿·Ö
+  public void write(int c):å†™ä¸€ä¸ªå­—ç¬¦
+  public void write(char[] cbuf):å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
+  public void write(char[] cbuf,int off,int len):å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„çš„ä¸€éƒ¨åˆ†
+  public void write(String str):å†™ä¸€ä¸ªå­—ç¬¦ä¸²
+  public void write(String str,int off,int len):å†™ä¸€ä¸ªå­—ç¬¦ä¸²çš„ä¸€éƒ¨åˆ†
 ```
 
-> Ò»¸ö×Ö·ûÁ½¸ö×Ö½Ú
+> ä¸€ä¸ªå­—ç¬¦ä¸¤ä¸ªå­—èŠ‚
 >
-> ×Ö·ûÁ÷Ğ´Êı¾İÒ»¶¨Òªµ÷ÓÃflush·½·¨£¬·ñÔò²»»áĞ´½øÎÄ¼ş£¬ÒòÎª´ËÊ±×Ö·ûÔÚ»º³åÖĞ£¬ÎÄ¼ş´æ´¢µÄµ¥Î»ÊÇ×Ö·û£¬µ«ÊÇÄãĞ´µÄÊÇ×Ö½Ú
+> å­—ç¬¦æµå†™æ•°æ®ä¸€å®šè¦è°ƒç”¨flushæ–¹æ³•ï¼Œå¦åˆ™ä¸ä¼šå†™è¿›æ–‡ä»¶ï¼Œå› ä¸ºæ­¤æ—¶å­—ç¬¦åœ¨ç¼“å†²ä¸­ï¼Œæ–‡ä»¶å­˜å‚¨çš„å•ä½æ˜¯å­—ç¬¦ï¼Œä½†æ˜¯ä½ å†™çš„æ˜¯å­—èŠ‚
 
-### close()ºÍflush()µÄÇø±ğ
+### close()å’Œflush()çš„åŒºåˆ«
 
-close()¹Ø±ÕÁ÷¶ÔÏó£¬µ«ÊÇÏÈË¢ĞÂÒ»´Î»º³åÇø¡£¹Ø±ÕÖ®ºó£¬Á÷¶ÔÏó²»¿ÉÒÔ¼ÌĞøÔÙÊ¹ÓÃÁË
+close()å…³é—­æµå¯¹è±¡ï¼Œä½†æ˜¯å…ˆåˆ·æ–°ä¸€æ¬¡ç¼“å†²åŒºã€‚å…³é—­ä¹‹åï¼Œæµå¯¹è±¡ä¸å¯ä»¥ç»§ç»­å†ä½¿ç”¨äº†
 
-flush()½ö½öË¢ĞÂ»º³åÇø,Ë¢ĞÂÖ®ºó£¬Á÷¶ÔÏó»¹¿ÉÒÔ¼ÌĞøÊ¹ÓÃ
+flush()ä»…ä»…åˆ·æ–°ç¼“å†²åŒº,åˆ·æ–°ä¹‹åï¼Œæµå¯¹è±¡è¿˜å¯ä»¥ç»§ç»­ä½¿ç”¨
 
-### ÊµÏÖ×ÓÀà
+### å®ç°å­ç±»
 
-OutputStreamWriter = FileOutputStream + ±àÂë±í(GBK)
+OutputStreamWriter = FileOutputStream + ç¼–ç è¡¨(GBK)
 
-FileWriter = FileOutputStream + ±àÂë±í(GBK)
+FileWriter = FileOutputStream + ç¼–ç è¡¨(GBK)
 
 ## InputStreamReader
 
-### ¹¹Ôì·½·¨
+### æ„é€ æ–¹æ³•
 
 ```java
-InputStreamReader(InputStream is):ÓÃÄ¬ÈÏµÄ±àÂë¶ÁÈ¡Êı¾İ
-InputStreamReader(InputStream is,String charsetName):ÓÃÖ¸¶¨µÄ±àÂë¶ÁÈ¡Êı¾İ
+InputStreamReader(InputStream is):ç”¨é»˜è®¤çš„ç¼–ç è¯»å–æ•°æ®
+InputStreamReader(InputStream is,String charsetName):ç”¨æŒ‡å®šçš„ç¼–ç è¯»å–æ•°æ®
 ```
 
-### ³ÉÔ±·½·¨
+### æˆå‘˜æ–¹æ³•
 
 ```java
-int read():Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·û
+int read():ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦
 
-int read(char[] chs):Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·ûÊı×é
+int read(char[] chs):ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 ```
 
-¶ÁÈ¡Êı¾İÊ¾Àı´úÂë£º
+è¯»å–æ•°æ®ç¤ºä¾‹ä»£ç ï¼š
 
 ```java
-		// ¶ÁÈ¡Êı¾İ
-		// Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·û
+		// è¯»å–æ•°æ®
+		// ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦
 		int ch = 0;
 		while ((ch = isr.read()) != -1) {
 			System.out.print((char) ch);
 		}
-		// Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·ûÊı×é
+		// ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 		char[] chs = new char[1024];
 		int len = 0;
 		while ((len = isr.read(chs)) != -1) {
@@ -106,42 +106,42 @@ int read(char[] chs):Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·ûÊı×é
 		}
 ```
 
-### ÊµÏÖ×ÓÀà
+### å®ç°å­ç±»
 
-InputStreamReader = FileInputStream + ±àÂë±í(GBK)
+InputStreamReader = FileInputStream + ç¼–ç è¡¨(GBK)
 
-FileReader = FileInputStream + ±àÂë±í(GBK)
+FileReader = FileInputStream + ç¼–ç è¡¨(GBK)
 
-## ×Ö·û»º³åÁ÷
+## å­—ç¬¦ç¼“å†²æµ
 ###BufferedReader
 
 ```java
 /*
  * BufferedReader
- * ´Ó×Ö·ûÊäÈëÁ÷ÖĞ¶ÁÈ¡ÎÄ±¾£¬»º³å¸÷¸ö×Ö·û£¬´Ó¶øÊµÏÖ×Ö·û¡¢Êı×éºÍĞĞµÄ¸ßĞ§¶ÁÈ¡¡£ 
- * ¿ÉÒÔÖ¸¶¨»º³åÇøµÄ´óĞ¡£¬»òÕß¿ÉÊ¹ÓÃÄ¬ÈÏµÄ´óĞ¡¡£´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµ¾Í×ã¹»´óÁË¡£ 
+ * ä»å­—ç¬¦è¾“å…¥æµä¸­è¯»å–æ–‡æœ¬ï¼Œç¼“å†²å„ä¸ªå­—ç¬¦ï¼Œä»è€Œå®ç°å­—ç¬¦ã€æ•°ç»„å’Œè¡Œçš„é«˜æ•ˆè¯»å–ã€‚ 
+ * å¯ä»¥æŒ‡å®šç¼“å†²åŒºçš„å¤§å°ï¼Œæˆ–è€…å¯ä½¿ç”¨é»˜è®¤çš„å¤§å°ã€‚å¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œé»˜è®¤å€¼å°±è¶³å¤Ÿå¤§äº†ã€‚ 
  * 
  * BufferedReader(Reader in)
  */
 public class BufferedReaderDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨×Ö·û»º³åÊäÈëÁ÷¶ÔÏó
+		// åˆ›å»ºå­—ç¬¦ç¼“å†²è¾“å…¥æµå¯¹è±¡
 		BufferedReader br = new BufferedReader(new FileReader("bw.txt"));
 
-		// ·½Ê½1
+		// æ–¹å¼1
 		int ch = 0;
 		while ((ch = br.read()) != -1) {
 			System.out.print((char) ch);
 		}
 
-		// ·½Ê½2
+		// æ–¹å¼2
 		char[] chs = new char[1024];
 		int len = 0;
 		while ((len = br.read(chs)) != -1) {
 			System.out.print(new String(chs, 0, len));
 		}
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		br.close();
 	}
 }
@@ -149,17 +149,17 @@ public class BufferedReaderDemo {
 
 ### BufferedWriter
 
-½«ÎÄ±¾Ğ´Èë×Ö·ûÊä³öÁ÷£¬»º³å¸÷¸ö×Ö·û£¬´Ó¶øÌá¹©µ¥¸ö×Ö·û¡¢Êı×éºÍ×Ö·û´®µÄ¸ßĞ§Ğ´Èë¡£
+å°†æ–‡æœ¬å†™å…¥å­—ç¬¦è¾“å‡ºæµï¼Œç¼“å†²å„ä¸ªå­—ç¬¦ï¼Œä»è€Œæä¾›å•ä¸ªå­—ç¬¦ã€æ•°ç»„å’Œå­—ç¬¦ä¸²çš„é«˜æ•ˆå†™å…¥ã€‚
 
 
 ```java
 /*
- * ×Ö·û»º³åÁ÷µÄÌØÊâ·½·¨£º
+ * å­—ç¬¦ç¼“å†²æµçš„ç‰¹æ®Šæ–¹æ³•ï¼š
  * BufferedWriter:
- * 		public void newLine():¸ù¾İÏµÍ³À´¾ö¶¨»»ĞĞ·û
+ * 		public void newLine():æ ¹æ®ç³»ç»Ÿæ¥å†³å®šæ¢è¡Œç¬¦
  * BufferedReader:
- * 		public String readLine()£ºÒ»´Î¶ÁÈ¡Ò»ĞĞÊı¾İ
- * 		°üº¬¸ÃĞĞÄÚÈİµÄ×Ö·û´®£¬²»°üº¬ÈÎºÎĞĞÖÕÖ¹·û£¬Èç¹ûÒÑµ½´ïÁ÷Ä©Î²£¬Ôò·µ»Ø null
+ * 		public String readLine()ï¼šä¸€æ¬¡è¯»å–ä¸€è¡Œæ•°æ®
+ * 		åŒ…å«è¯¥è¡Œå†…å®¹çš„å­—ç¬¦ä¸²ï¼Œä¸åŒ…å«ä»»ä½•è¡Œç»ˆæ­¢ç¬¦ï¼Œå¦‚æœå·²åˆ°è¾¾æµæœ«å°¾ï¼Œåˆ™è¿”å› null
  */
 public class BufferedDemo {
 	public static void main(String[] args) throws IOException {
@@ -168,7 +168,7 @@ public class BufferedDemo {
 	}
 
 	private static void read() throws IOException {
-		// ´´½¨×Ö·û»º³åÊäÈëÁ÷¶ÔÏó
+		// åˆ›å»ºå­—ç¬¦ç¼“å†²è¾“å…¥æµå¯¹è±¡
 		BufferedReader br = new BufferedReader(new FileReader("bw2.txt"));
 
 		String line = null;
@@ -176,12 +176,12 @@ public class BufferedDemo {
 			System.out.println(line);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		br.close();
 	}
 
 	private static void write() throws IOException {
-		// ´´½¨×Ö·û»º³åÊä³öÁ÷¶ÔÏó
+		// åˆ›å»ºå­—ç¬¦ç¼“å†²è¾“å‡ºæµå¯¹è±¡
 		BufferedWriter bw = new BufferedWriter(new FileWriter("bw2.txt"));
 		for (int x = 0; x < 10; x++) {
 			bw.write("hello" + x);
@@ -193,25 +193,25 @@ public class BufferedDemo {
 	}
 }
 ```
-×¢Òâ£ºbw.write("hello" + x);²»°üÀ¨»»ĞĞ·ûºÅ£¬ËùÒÔÒªÌí¼ÓnewLine·½·¨£¬×÷Îª»»ĞĞ·ûºÅ
+æ³¨æ„ï¼šbw.write("hello" + x);ä¸åŒ…æ‹¬æ¢è¡Œç¬¦å·ï¼Œæ‰€ä»¥è¦æ·»åŠ newLineæ–¹æ³•ï¼Œä½œä¸ºæ¢è¡Œç¬¦å·
 
-> newLineÊÇĞ´»»ĞĞ·ûºÅ
+> newLineæ˜¯å†™æ¢è¡Œç¬¦å·
 
-![IOÁ÷Ğ¡½áÍ¼½â](http://oaxelf1sk.bkt.clouddn.com/IOÁ÷Ğ¡½áÍ¼½â.png)
+![IOæµå°ç»“å›¾è§£](http://oaxelf1sk.bkt.clouddn.com/IOæµå°ç»“å›¾è§£.png)
 
-### ×Ö·ûÁ÷¸´ÖÆµÄÁ·Ï°
+### å­—ç¬¦æµå¤åˆ¶çš„ç»ƒä¹ 
 
 ```java
 /*
- * ¸´ÖÆÎÄ±¾ÎÄ¼ş
+ * å¤åˆ¶æ–‡æœ¬æ–‡ä»¶
  * 
- * ·ÖÎö£º
- * 		¸´ÖÆÊı¾İ£¬Èç¹ûÎÒÃÇÖªµÀÓÃ¼ÇÊÂ±¾´ò¿ª²¢ÄÜ¹»¶Á¶®£¬¾ÍÓÃ×Ö·ûÁ÷£¬·ñÔòÓÃ×Ö½ÚÁ÷¡£
- * 		Í¨¹ı¸ÃÔ­Àí£¬ÎÒÃÇÖªµÀÎÒÃÇÓ¦¸Ã²ÉÓÃ×Ö·ûÁ÷¸ü·½±ãÒ»Ğ©¡£
- * 		¶ø×Ö·ûÁ÷ÓĞ5ÖÖ·½Ê½£¬ËùÒÔ×öÕâ¸öÌâÄ¿ÎÒÃÇÓĞ5ÖÖ·½Ê½¡£ÍÆ¼öÕÆÎÕµÚ5ÖÖ¡£
- * Êı¾İÔ´£º
+ * åˆ†æï¼š
+ * 		å¤åˆ¶æ•°æ®ï¼Œå¦‚æœæˆ‘ä»¬çŸ¥é“ç”¨è®°äº‹æœ¬æ‰“å¼€å¹¶èƒ½å¤Ÿè¯»æ‡‚ï¼Œå°±ç”¨å­—ç¬¦æµï¼Œå¦åˆ™ç”¨å­—èŠ‚æµã€‚
+ * 		é€šè¿‡è¯¥åŸç†ï¼Œæˆ‘ä»¬çŸ¥é“æˆ‘ä»¬åº”è¯¥é‡‡ç”¨å­—ç¬¦æµæ›´æ–¹ä¾¿ä¸€äº›ã€‚
+ * 		è€Œå­—ç¬¦æµæœ‰5ç§æ–¹å¼ï¼Œæ‰€ä»¥åšè¿™ä¸ªé¢˜ç›®æˆ‘ä»¬æœ‰5ç§æ–¹å¼ã€‚æ¨èæŒæ¡ç¬¬5ç§ã€‚
+ * æ•°æ®æºï¼š
  * 		c:\\a.txt -- FileReader -- BufferdReader
- * Ä¿µÄµØ£º
+ * ç›®çš„åœ°ï¼š
  * 		d:\\b.txt -- FileWriter -- BufferedWriter
  */
 public class CopyFileDemo {
@@ -225,7 +225,7 @@ public class CopyFileDemo {
 		method5(srcString, destString);
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û´®
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦ä¸²
 	private static void method5(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -242,7 +242,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·ûÊı×é
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 	private static void method4(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -258,7 +258,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦
 	private static void method3(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -273,7 +273,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// »ù±¾×Ö·ûÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·ûÊı×é
+	// åŸºæœ¬å­—ç¬¦æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 	private static void method2(String srcString, String destString)
 			throws IOException {
 		FileReader fr = new FileReader(srcString);
@@ -289,7 +289,7 @@ public class CopyFileDemo {
 		fr.close();
 	}
 
-	// »ù±¾×Ö·ûÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û
+	// åŸºæœ¬å­—ç¬¦æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦
 	private static void method1(String srcString, String destString)
 			throws IOException {
 		FileReader fr = new FileReader(srcString);
@@ -306,12 +306,12 @@ public class CopyFileDemo {
 }
 ```
 
-ÎÒÓĞÒ»¸öÎÄ±¾ÎÄ¼şÖĞ´æ´¢ÁË¼¸¸öÃû³Æ£¬Çë´ó¼ÒĞ´Ò»¸ö³ÌĞòÊµÏÖËæ»ú»ñÈ¡Ò»¸öÈËµÄÃû×Ö
+æˆ‘æœ‰ä¸€ä¸ªæ–‡æœ¬æ–‡ä»¶ä¸­å­˜å‚¨äº†å‡ ä¸ªåç§°ï¼Œè¯·å¤§å®¶å†™ä¸€ä¸ªç¨‹åºå®ç°éšæœºè·å–ä¸€ä¸ªäººçš„åå­—
 
 ```java
 public class GetName {
 	public static void main(String[] args) throws IOException {
-		// °ÑÎÄ±¾ÎÄ¼şÖĞµÄÊı¾İ´æ´¢µ½¼¯ºÏÖĞ
+		// æŠŠæ–‡æœ¬æ–‡ä»¶ä¸­çš„æ•°æ®å­˜å‚¨åˆ°é›†åˆä¸­
 		BufferedReader br = new BufferedReader(new FileReader("b.txt"));
 		ArrayList<String> array = new ArrayList<String>();
 		String line = null;
@@ -320,50 +320,50 @@ public class GetName {
 		}
 		br.close();
 
-		// Ëæ»ú²úÉúÒ»¸öË÷Òı
+		// éšæœºäº§ç”Ÿä¸€ä¸ªç´¢å¼•
 		Random r = new Random();
 		int index = r.nextInt(array.size());
 
-		// ¸ù¾İ¸ÃË÷Òı»ñÈ¡Ò»¸öÖµ
+		// æ ¹æ®è¯¥ç´¢å¼•è·å–ä¸€ä¸ªå€¼
 		String name = array.get(index);
-		System.out.println("¸ÃĞÒÔËÕßÊÇ£º" + name);
+		System.out.println("è¯¥å¹¸è¿è€…æ˜¯ï¼š" + name);
 	}
 }
 ```
 
-×¢Òâ£ºrandomÀàºÍmathÖĞµÄËæ»úÊıµÄÇø±ğ
+æ³¨æ„ï¼šrandomç±»å’Œmathä¸­çš„éšæœºæ•°çš„åŒºåˆ«
 
-¸´ÖÆÖ¸¶¨Ä¿Â¼ÏÂµÄÖ¸¶¨ÎÄ¼ş£¬²¢ĞŞ¸Äºó×ºÃû
+å¤åˆ¶æŒ‡å®šç›®å½•ä¸‹çš„æŒ‡å®šæ–‡ä»¶ï¼Œå¹¶ä¿®æ”¹åç¼€å
 
 ```java
 /*
- * ĞèÇó£º¸´ÖÆÖ¸¶¨Ä¿Â¼ÏÂµÄÖ¸¶¨ÎÄ¼ş£¬²¢ĞŞ¸Äºó×ºÃû¡£
- * Ö¸¶¨µÄÎÄ¼şÊÇ£º.javaÎÄ¼ş¡£
- * Ö¸¶¨µÄºó×ºÃûÊÇ£º.jad
- * Ö¸¶¨µÄÄ¿Â¼ÊÇ£ºjad
+ * éœ€æ±‚ï¼šå¤åˆ¶æŒ‡å®šç›®å½•ä¸‹çš„æŒ‡å®šæ–‡ä»¶ï¼Œå¹¶ä¿®æ”¹åç¼€åã€‚
+ * æŒ‡å®šçš„æ–‡ä»¶æ˜¯ï¼š.javaæ–‡ä»¶ã€‚
+ * æŒ‡å®šçš„åç¼€åæ˜¯ï¼š.jad
+ * æŒ‡å®šçš„ç›®å½•æ˜¯ï¼šjad
  * 
- * Êı¾İÔ´£ºe:\\java\\A.java
- * Ä¿µÄµØ£ºe:\\jad\\A.jad
+ * æ•°æ®æºï¼še:\\java\\A.java
+ * ç›®çš„åœ°ï¼še:\\jad\\A.jad
  * 
- * ·ÖÎö£º
- * 		A:·â×°Ä¿Â¼
- * 		B:»ñÈ¡¸ÃÄ¿Â¼ÏÂµÄjavaÎÄ¼şµÄFileÊı×é
- * 		C:±éÀú¸ÃFileÊı×é£¬µÃµ½Ã¿Ò»¸öFile¶ÔÏó
- * 		D:°Ñ¸ÃFile½øĞĞ¸´ÖÆ
- * 		E:ÔÚÄ¿µÄµØÄ¿Â¼ÏÂ¸ÄÃû
+ * åˆ†æï¼š
+ * 		A:å°è£…ç›®å½•
+ * 		B:è·å–è¯¥ç›®å½•ä¸‹çš„javaæ–‡ä»¶çš„Fileæ•°ç»„
+ * 		C:éå†è¯¥Fileæ•°ç»„ï¼Œå¾—åˆ°æ¯ä¸€ä¸ªFileå¯¹è±¡
+ * 		D:æŠŠè¯¥Fileè¿›è¡Œå¤åˆ¶
+ * 		E:åœ¨ç›®çš„åœ°ç›®å½•ä¸‹æ”¹å
  */
 public class CopyFolderDemo {
 	public static void main(String[] args) throws IOException {
-		// ·â×°Ä¿Â¼
+		// å°è£…ç›®å½•
 		File srcFolder = new File("e:\\java");
-		// ·â×°Ä¿µÄµØ
+		// å°è£…ç›®çš„åœ°
 		File destFolder = new File("e:\\jad");
-		// Èç¹ûÄ¿µÄµØÄ¿Â¼²»´æÔÚ£¬¾Í´´½¨
+		// å¦‚æœç›®çš„åœ°ç›®å½•ä¸å­˜åœ¨ï¼Œå°±åˆ›å»º
 		if (!destFolder.exists()) {
 			destFolder.mkdir();
 		}
 
-		// »ñÈ¡¸ÃÄ¿Â¼ÏÂµÄjavaÎÄ¼şµÄFileÊı×é
+		// è·å–è¯¥ç›®å½•ä¸‹çš„javaæ–‡ä»¶çš„Fileæ•°ç»„
 		File[] fileArray = srcFolder.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -371,17 +371,17 @@ public class CopyFolderDemo {
 			}
 		});
 
-		// ±éÀú¸ÃFileÊı×é£¬µÃµ½Ã¿Ò»¸öFile¶ÔÏó
+		// éå†è¯¥Fileæ•°ç»„ï¼Œå¾—åˆ°æ¯ä¸€ä¸ªFileå¯¹è±¡
 		for (File file : fileArray) {
 			// System.out.println(file);
-			// Êı¾İÔ´£ºe:\java\DataTypeDemo.java
-			// Ä¿µÄµØ£ºe:\\jad\DataTypeDemo.java
+			// æ•°æ®æºï¼še:\java\DataTypeDemo.java
+			// ç›®çš„åœ°ï¼še:\\jad\DataTypeDemo.java
 			String name = file.getName();
 			File newFile = new File(destFolder, name);
 			copyFile(file, newFile);
 		}
 
-		// ÔÚÄ¿µÄµØÄ¿Â¼ÏÂ¸ÄÃû
+		// åœ¨ç›®çš„åœ°ç›®å½•ä¸‹æ”¹å
 		File[] destFileArray = destFolder.listFiles();
 		for (File destFile : destFileArray) {
 			// System.out.println(destFile);
@@ -416,49 +416,49 @@ public class CopyFolderDemo {
 
 ```java
 /*
- * ĞèÇó£º¸´ÖÆ¶à¼«ÎÄ¼ş¼Ğ
+ * éœ€æ±‚ï¼šå¤åˆ¶å¤šææ–‡ä»¶å¤¹
  * 
- * Êı¾İÔ´£ºE:\JavaSE\day21\code\demos
- * Ä¿µÄµØ£ºE:\\
+ * æ•°æ®æºï¼šE:\JavaSE\day21\code\demos
+ * ç›®çš„åœ°ï¼šE:\\
  * 
- * ·ÖÎö£º
- * 		A:·â×°Êı¾İÔ´File
- * 		B:·â×°Ä¿µÄµØFile
- * 		C:ÅĞ¶Ï¸ÃFileÊÇÎÄ¼ş¼Ğ»¹ÊÇÎÄ¼ş
- * 			a:ÊÇÎÄ¼ş¼Ğ
- * 				¾ÍÔÚÄ¿µÄµØÄ¿Â¼ÏÂ´´½¨¸ÃÎÄ¼ş¼Ğ
- * 				»ñÈ¡¸ÃFile¶ÔÏóÏÂµÄËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞFile¶ÔÏó
- * 				±éÀúµÃµ½Ã¿Ò»¸öFile¶ÔÏó
- * 				»Øµ½C
- * 			b:ÊÇÎÄ¼ş
- * 				¾Í¸´ÖÆ(×Ö½ÚÁ÷)
+ * åˆ†æï¼š
+ * 		A:å°è£…æ•°æ®æºFile
+ * 		B:å°è£…ç›®çš„åœ°File
+ * 		C:åˆ¤æ–­è¯¥Fileæ˜¯æ–‡ä»¶å¤¹è¿˜æ˜¯æ–‡ä»¶
+ * 			a:æ˜¯æ–‡ä»¶å¤¹
+ * 				å°±åœ¨ç›®çš„åœ°ç›®å½•ä¸‹åˆ›å»ºè¯¥æ–‡ä»¶å¤¹
+ * 				è·å–è¯¥Fileå¯¹è±¡ä¸‹çš„æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹Fileå¯¹è±¡
+ * 				éå†å¾—åˆ°æ¯ä¸€ä¸ªFileå¯¹è±¡
+ * 				å›åˆ°C
+ * 			b:æ˜¯æ–‡ä»¶
+ * 				å°±å¤åˆ¶(å­—èŠ‚æµ)
  */
 public class CopyFoldersDemo {
 	public static void main(String[] args) throws IOException {
-		// ·â×°Êı¾İÔ´File
+		// å°è£…æ•°æ®æºFile
 		File srcFile = new File("E:\\JavaSE\\day21\\code\\demos");
-		// ·â×°Ä¿µÄµØFile
+		// å°è£…ç›®çš„åœ°File
 		File destFile = new File("E:\\");
 
-		// ¸´ÖÆÎÄ¼ş¼ĞµÄ¹¦ÄÜ
+		// å¤åˆ¶æ–‡ä»¶å¤¹çš„åŠŸèƒ½
 		copyFolder(srcFile, destFile);
 	}
 
 	private static void copyFolder(File srcFile, File destFile)
 			throws IOException {
-		// ÅĞ¶Ï¸ÃFileÊÇÎÄ¼ş¼Ğ»¹ÊÇÎÄ¼ş
+		// åˆ¤æ–­è¯¥Fileæ˜¯æ–‡ä»¶å¤¹è¿˜æ˜¯æ–‡ä»¶
 		if (srcFile.isDirectory()) {
-			// ÎÄ¼ş¼Ğ
+			// æ–‡ä»¶å¤¹
 			File newFolder = new File(destFile, srcFile.getName());
 			newFolder.mkdir();
 
-			// »ñÈ¡¸ÃFile¶ÔÏóÏÂµÄËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞFile¶ÔÏó
+			// è·å–è¯¥Fileå¯¹è±¡ä¸‹çš„æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹Fileå¯¹è±¡
 			File[] fileArray = srcFile.listFiles();
 			for (File file : fileArray) {
 				copyFolder(file, newFolder);
 			}
 		} else {
-			// ÎÄ¼ş
+			// æ–‡ä»¶
 			File newFile = new File(destFile, srcFile.getName());
 			copyFile(srcFile, newFile);
 		}
@@ -484,18 +484,18 @@ public class CopyFoldersDemo {
 
 ```java
 /*
- * ¼üÅÌÂ¼Èë5¸öÑ§ÉúĞÅÏ¢(ĞÕÃû,ÓïÎÄ³É¼¨,ÊıÑ§³É¼¨,Ó¢Óï³É¼¨),°´ÕÕ×Ü·Ö´Ó¸ßµ½µÍ´æÈëÎÄ±¾ÎÄ¼ş
+ * é”®ç›˜å½•å…¥5ä¸ªå­¦ç”Ÿä¿¡æ¯(å§“å,è¯­æ–‡æˆç»©,æ•°å­¦æˆç»©,è‹±è¯­æˆç»©),æŒ‰ç…§æ€»åˆ†ä»é«˜åˆ°ä½å­˜å…¥æ–‡æœ¬æ–‡ä»¶
  * 
- * ·ÖÎö£º
- * 		A:´´½¨Ñ§ÉúÀà
- * 		B:´´½¨¼¯ºÏ¶ÔÏó
+ * åˆ†æï¼š
+ * 		A:åˆ›å»ºå­¦ç”Ÿç±»
+ * 		B:åˆ›å»ºé›†åˆå¯¹è±¡
  * 			TreeSet<Student>
- * 		C:¼üÅÌÂ¼ÈëÑ§ÉúĞÅÏ¢´æ´¢µ½¼¯ºÏ
- * 		D:±éÀú¼¯ºÏ£¬°ÑÊı¾İĞ´µ½ÎÄ±¾ÎÄ¼ş
+ * 		C:é”®ç›˜å½•å…¥å­¦ç”Ÿä¿¡æ¯å­˜å‚¨åˆ°é›†åˆ
+ * 		D:éå†é›†åˆï¼ŒæŠŠæ•°æ®å†™åˆ°æ–‡æœ¬æ–‡ä»¶
  */
 public class StudentDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨¼¯ºÏ¶ÔÏó
+		// åˆ›å»ºé›†åˆå¯¹è±¡
 		TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
 			@Override
 			public int compare(Student s1, Student s2) {
@@ -509,36 +509,36 @@ public class StudentDemo {
 			}
 		});
 
-		// ¼üÅÌÂ¼ÈëÑ§ÉúĞÅÏ¢´æ´¢µ½¼¯ºÏ
+		// é”®ç›˜å½•å…¥å­¦ç”Ÿä¿¡æ¯å­˜å‚¨åˆ°é›†åˆ
 		for (int x = 1; x <= 5; x++) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("ÇëÂ¼ÈëµÚ" + x + "¸öµÄÑ§Ï°ĞÅÏ¢");
-			System.out.println("ĞÕÃû£º");
+			System.out.println("è¯·å½•å…¥ç¬¬" + x + "ä¸ªçš„å­¦ä¹ ä¿¡æ¯");
+			System.out.println("å§“åï¼š");
 			String name = sc.nextLine();
-			System.out.println("ÓïÎÄ³É¼¨£º");
+			System.out.println("è¯­æ–‡æˆç»©ï¼š");
 			int chinese = sc.nextInt();
-			System.out.println("ÊıÑ§³É¼¨£º");
+			System.out.println("æ•°å­¦æˆç»©ï¼š");
 			int math = sc.nextInt();
-			System.out.println("Ó¢Óï³É¼¨£º");
+			System.out.println("è‹±è¯­æˆç»©ï¼š");
 			int english = sc.nextInt();
 
-			// ´´½¨Ñ§Éú¶ÔÏó
+			// åˆ›å»ºå­¦ç”Ÿå¯¹è±¡
 			Student s = new Student();
 			s.setName(name);
 			s.setChinese(chinese);
 			s.setMath(math);
 			s.setEnglish(english);
 
-			// °ÑÑ§ÉúĞÅÏ¢Ìí¼Óµ½¼¯ºÏ
+			// æŠŠå­¦ç”Ÿä¿¡æ¯æ·»åŠ åˆ°é›†åˆ
 			ts.add(s);
 		}
 
-		// ±éÀú¼¯ºÏ£¬°ÑÊı¾İĞ´µ½ÎÄ±¾ÎÄ¼ş
+		// éå†é›†åˆï¼ŒæŠŠæ•°æ®å†™åˆ°æ–‡æœ¬æ–‡ä»¶
 		BufferedWriter bw = new BufferedWriter(new FileWriter("students.txt"));
-		bw.write("Ñ§ÉúĞÅÏ¢ÈçÏÂ£º");
+		bw.write("å­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š");
 		bw.newLine();
 		bw.flush();
-		bw.write("ĞÕÃû,ÓïÎÄ³É¼¨,ÊıÑ§³É¼¨,Ó¢Óï³É¼¨");
+		bw.write("å§“å,è¯­æ–‡æˆç»©,æ•°å­¦æˆç»©,è‹±è¯­æˆç»©");
 		bw.newLine();
 		bw.flush();
 		for (Student s : ts) {
@@ -550,45 +550,45 @@ public class StudentDemo {
 			bw.newLine();
 			bw.flush();
 		}
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		bw.close();
-		System.out.println("Ñ§Ï°ĞÅÏ¢´æ´¢Íê±Ï");
+		System.out.println("å­¦ä¹ ä¿¡æ¯å­˜å‚¨å®Œæ¯•");
 	}
 }
 ```
 
-×¢Òâ£ºÉÏÃæ´úÂëµÄstringBuilderµÄÓÃ·¨ºÍTreeSetµÄÓÃ·¨
+æ³¨æ„ï¼šä¸Šé¢ä»£ç çš„stringBuilderçš„ç”¨æ³•å’ŒTreeSetçš„ç”¨æ³•
 
 ```java
 /*
- * ÒÑÖªs.txtÎÄ¼şÖĞÓĞÕâÑùµÄÒ»¸ö×Ö·û´®£º¡°hcexfgijkamdnoqrzstuvwybpl¡±
- * Çë±àĞ´³ÌĞò¶ÁÈ¡Êı¾İÄÚÈİ£¬°ÑÊı¾İÅÅĞòºóĞ´Èëss.txtÖĞ¡£
+ * å·²çŸ¥s.txtæ–‡ä»¶ä¸­æœ‰è¿™æ ·çš„ä¸€ä¸ªå­—ç¬¦ä¸²ï¼šâ€œhcexfgijkamdnoqrzstuvwybplâ€
+ * è¯·ç¼–å†™ç¨‹åºè¯»å–æ•°æ®å†…å®¹ï¼ŒæŠŠæ•°æ®æ’åºåå†™å…¥ss.txtä¸­ã€‚
  * 
- * ·ÖÎö£º
- * 		A:°Ñs.txtÕâ¸öÎÄ¼ş¸ø×ö³öÀ´
- * 		B:¶ÁÈ¡¸ÃÎÄ¼şµÄÄÚÈİ£¬´æ´¢µ½Ò»¸ö×Ö·û´®ÖĞ
- * 		C:°Ñ×Ö·û´®×ª»»Îª×Ö·ûÊı×é
- * 		D:¶Ô×Ö·ûÊı×é½øĞĞÅÅĞò
- * 		E:°ÑÅÅĞòºóµÄ×Ö·ûÊı×é×ª»»Îª×Ö·û´®
- * 		F:°Ñ×Ö·û´®ÔÙ´ÎĞ´Èëss.txtÖĞ
+ * åˆ†æï¼š
+ * 		A:æŠŠs.txtè¿™ä¸ªæ–‡ä»¶ç»™åšå‡ºæ¥
+ * 		B:è¯»å–è¯¥æ–‡ä»¶çš„å†…å®¹ï¼Œå­˜å‚¨åˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­
+ * 		C:æŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—ç¬¦æ•°ç»„
+ * 		D:å¯¹å­—ç¬¦æ•°ç»„è¿›è¡Œæ’åº
+ * 		E:æŠŠæ’åºåçš„å­—ç¬¦æ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²
+ * 		F:æŠŠå­—ç¬¦ä¸²å†æ¬¡å†™å…¥ss.txtä¸­
  */
 public class StringDemo {
 	public static void main(String[] args) throws IOException {
-		// ¶ÁÈ¡¸ÃÎÄ¼şµÄÄÚÈİ£¬´æ´¢µ½Ò»¸ö×Ö·û´®ÖĞ
+		// è¯»å–è¯¥æ–‡ä»¶çš„å†…å®¹ï¼Œå­˜å‚¨åˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­
 		BufferedReader br = new BufferedReader(new FileReader("s.txt"));
 		String line = br.readLine();
 		br.close();
 
-		// °Ñ×Ö·û´®×ª»»Îª×Ö·ûÊı×é
+		// æŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—ç¬¦æ•°ç»„
 		char[] chs = line.toCharArray();
 
-		// ¶Ô×Ö·ûÊı×é½øĞĞÅÅĞò
+		// å¯¹å­—ç¬¦æ•°ç»„è¿›è¡Œæ’åº
 		Arrays.sort(chs);
 
-		// °ÑÅÅĞòºóµÄ×Ö·ûÊı×é×ª»»Îª×Ö·û´®
+		// æŠŠæ’åºåçš„å­—ç¬¦æ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²
 		String s = new String(chs);
 
-		// °Ñ×Ö·û´®ÔÙ´ÎĞ´Èëss.txtÖĞ
+		// æŠŠå­—ç¬¦ä¸²å†æ¬¡å†™å…¥ss.txtä¸­
 		BufferedWriter bw = new BufferedWriter(new FileWriter("ss.txt"));
 		bw.write(s);
 		bw.newLine();
@@ -599,13 +599,13 @@ public class StringDemo {
 }
 ```
 
-×¢Òâ£ºÉÏÃæ´úÂëµÄarraysÀàµÄÓÃ·¨
+æ³¨æ„ï¼šä¸Šé¢ä»£ç çš„arraysç±»çš„ç”¨æ³•
 
 ```java
 /*
- * ÓÃReaderÄ£ÄâBufferedReaderµÄreadLine()¹¦ÄÜ
+ * ç”¨Readeræ¨¡æ‹ŸBufferedReaderçš„readLine()åŠŸèƒ½
  * 
- * readLine():Ò»´Î¶ÁÈ¡Ò»ĞĞ£¬¸ù¾İ»»ĞĞ·ûÅĞ¶ÏÊÇ·ñ½áÊø£¬Ö»·µ»ØÄÚÈİ£¬²»·µ»Ø»»ĞĞ·û
+ * readLine():ä¸€æ¬¡è¯»å–ä¸€è¡Œï¼Œæ ¹æ®æ¢è¡Œç¬¦åˆ¤æ–­æ˜¯å¦ç»“æŸï¼Œåªè¿”å›å†…å®¹ï¼Œä¸è¿”å›æ¢è¡Œç¬¦
  */
 public class MyBufferedReader {
 	private Reader r;
@@ -615,20 +615,20 @@ public class MyBufferedReader {
 	}
 
 	/*
-	 * Ë¼¿¼£ºĞ´Ò»¸ö·½·¨£¬·µ»ØÖµÊÇÒ»¸ö×Ö·û´®¡£
+	 * æ€è€ƒï¼šå†™ä¸€ä¸ªæ–¹æ³•ï¼Œè¿”å›å€¼æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚
 	 */
 	public String readLine() throws IOException {
 		/*
-		 * ÎÒÒª·µ»ØÒ»¸ö×Ö·û´®£¬ÎÒ¸ÃÔõÃ´°ìÄØ? ÎÒÃÇ±ØĞëÈ¥¿´¿´r¶ÔÏóÄÜ¹»¶ÁÈ¡Ê²Ã´¶«Î÷ÄØ? Á½¸ö¶ÁÈ¡·½·¨£¬Ò»´Î¶ÁÈ¡Ò»¸ö×Ö·û»òÕßÒ»´Î¶ÁÈ¡Ò»¸ö×Ö·ûÊı×é
-		 * ÄÇÃ´£¬ÎÒÃÇÒª·µ»ØÒ»¸ö×Ö·û´®£¬ÓÃÄÄ¸ö·½·¨±È½ÏºÃÄØ? ÎÒÃÇºÜÈİÒ×Ïëµ½×Ö·ûÊı×é±È½ÏºÃ£¬µ«ÊÇÎÊÌâÀ´ÁË£¬¾ÍÊÇÕâ¸öÊı×éµÄ³¤¶ÈÊÇ¶à³¤ÄØ?
-		 * ¸ù±¾¾ÍÃ»ÓĞ°ì·¨¶¨ÒåÊı×éµÄ³¤¶È£¬Äã¶¨Òå¶à³¤¶¼²»ºÏÊÊ¡£ ËùÒÔ£¬Ö»ÄÜÑ¡ÔñÒ»´Î¶ÁÈ¡Ò»¸ö×Ö·û¡£
-		 * µ«ÊÇÄØ£¬ÕâÖÖ·½Ê½µÄÊ±ºò£¬ÎÒÃÇÔÙ¶ÁÈ¡ÏÂÒ»¸ö×Ö·ûµÄÊ±ºò£¬ÉÏÒ»¸ö×Ö·û¾Í¶ªÊ§ÁË ËùÒÔ£¬ÎÒÃÇÓÖÓ¦¸Ã¶¨ÒåÒ»¸öÁÙÊ±´æ´¢¿Õ¼ä°Ñ¶ÁÈ¡¹ıµÄ×Ö·û¸ø´æ´¢ÆğÀ´¡£
-		 * Õâ¸öÓÃË­±È½ÏºÍÊÇÄØ?Êı×é£¬¼¯ºÏ£¬×Ö·û´®»º³åÇøÈı¸ö¿É¹©Ñ¡Ôñ¡£
-		 * Êı×é²»ÖªµÀ´óĞ¡£¬¼¯ºÏÂé·³£¬¾­¹ı¼òµ¥µÄ·ÖÎö£¬×îÖÕÑ¡ÔñÊ¹ÓÃ×Ö·û´®»º³åÇø¶ÔÏó¡£²¢ÇÒÊ¹ÓÃµÄÊÇStringBuilder
+		 * æˆ‘è¦è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œæˆ‘è¯¥æ€ä¹ˆåŠå‘¢? æˆ‘ä»¬å¿…é¡»å»çœ‹çœ‹rå¯¹è±¡èƒ½å¤Ÿè¯»å–ä»€ä¹ˆä¸œè¥¿å‘¢? ä¸¤ä¸ªè¯»å–æ–¹æ³•ï¼Œä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦æˆ–è€…ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦æ•°ç»„
+		 * é‚£ä¹ˆï¼Œæˆ‘ä»¬è¦è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨å“ªä¸ªæ–¹æ³•æ¯”è¾ƒå¥½å‘¢? æˆ‘ä»¬å¾ˆå®¹æ˜“æƒ³åˆ°å­—ç¬¦æ•°ç»„æ¯”è¾ƒå¥½ï¼Œä½†æ˜¯é—®é¢˜æ¥äº†ï¼Œå°±æ˜¯è¿™ä¸ªæ•°ç»„çš„é•¿åº¦æ˜¯å¤šé•¿å‘¢?
+		 * æ ¹æœ¬å°±æ²¡æœ‰åŠæ³•å®šä¹‰æ•°ç»„çš„é•¿åº¦ï¼Œä½ å®šä¹‰å¤šé•¿éƒ½ä¸åˆé€‚ã€‚ æ‰€ä»¥ï¼Œåªèƒ½é€‰æ‹©ä¸€æ¬¡è¯»å–ä¸€ä¸ªå­—ç¬¦ã€‚
+		 * ä½†æ˜¯å‘¢ï¼Œè¿™ç§æ–¹å¼çš„æ—¶å€™ï¼Œæˆ‘ä»¬å†è¯»å–ä¸‹ä¸€ä¸ªå­—ç¬¦çš„æ—¶å€™ï¼Œä¸Šä¸€ä¸ªå­—ç¬¦å°±ä¸¢å¤±äº† æ‰€ä»¥ï¼Œæˆ‘ä»¬åˆåº”è¯¥å®šä¹‰ä¸€ä¸ªä¸´æ—¶å­˜å‚¨ç©ºé—´æŠŠè¯»å–è¿‡çš„å­—ç¬¦ç»™å­˜å‚¨èµ·æ¥ã€‚
+		 * è¿™ä¸ªç”¨è°æ¯”è¾ƒå’Œæ˜¯å‘¢?æ•°ç»„ï¼Œé›†åˆï¼Œå­—ç¬¦ä¸²ç¼“å†²åŒºä¸‰ä¸ªå¯ä¾›é€‰æ‹©ã€‚
+		 * æ•°ç»„ä¸çŸ¥é“å¤§å°ï¼Œé›†åˆéº»çƒ¦ï¼Œç»è¿‡ç®€å•çš„åˆ†æï¼Œæœ€ç»ˆé€‰æ‹©ä½¿ç”¨å­—ç¬¦ä¸²ç¼“å†²åŒºå¯¹è±¡ã€‚å¹¶ä¸”ä½¿ç”¨çš„æ˜¯StringBuilder
 		 */
 		StringBuilder sb = new StringBuilder();
 
-		// ×öÕâ¸ö¶ÁÈ¡×îÂé·³µÄÊÇÅĞ¶Ï½áÊø£¬µ«ÊÇÔÚ½áÊøÖ®Ç°Ó¦¸ÃÊÇÒ»Ö±¶ÁÈ¡£¬Ö±µ½-1
+		// åšè¿™ä¸ªè¯»å–æœ€éº»çƒ¦çš„æ˜¯åˆ¤æ–­ç»“æŸï¼Œä½†æ˜¯åœ¨ç»“æŸä¹‹å‰åº”è¯¥æ˜¯ä¸€ç›´è¯»å–ï¼Œç›´åˆ°-1
 
 		int ch = 0;
 		while ((ch = r.read()) != -1) { //104,101,108,108,111
@@ -643,7 +643,7 @@ public class MyBufferedReader {
 			}
 		}
 
-		// ÎªÁË·ÀÖ¹Êı¾İ¶ªÊ§£¬¾ÍÊÇ×îºóÒ»ĞĞÃ»ÓĞ°´ÏÂ»»ĞĞÖ±½Ó½áÊø
+		// ä¸ºäº†é˜²æ­¢æ•°æ®ä¸¢å¤±ï¼Œå°±æ˜¯æœ€åä¸€è¡Œæ²¡æœ‰æŒ‰ä¸‹æ¢è¡Œç›´æ¥ç»“æŸ
 		if (sb.length() > 0) {
 			return sb.toString();
 		}
@@ -652,7 +652,7 @@ public class MyBufferedReader {
 	}
 
 	/*
-	 * ÏÈĞ´Ò»¸ö¹Ø±Õ·½·¨
+	 * å…ˆå†™ä¸€ä¸ªå…³é—­æ–¹æ³•
 	 */
 	public void close() throws IOException {
 		this.r.close();
@@ -660,12 +660,12 @@ public class MyBufferedReader {
 }
 ```
 
-×¢Òâ:ÔÚstringBUilderµ÷ÓÃappend·½·¨Ê±Ò»¶¨Òª×ª»»³Échar·ñÔò´òÓ¡³öµÄÊÇÊı×Ö
+æ³¨æ„:åœ¨stringBUilderè°ƒç”¨appendæ–¹æ³•æ—¶ä¸€å®šè¦è½¬æ¢æˆcharå¦åˆ™æ‰“å°å‡ºçš„æ˜¯æ•°å­—
 
-×¢ÒâÕâÖÖÀûÓÃÒÑÖªÀàÀ´ÊµÏÖ×Ô¶¨Òå¹¦ÄÜµÄ·â×°·½·¨£¬ÓĞË½ÓĞ±äÁ¿£¬¹¹Ôì·½·¨£¬»¹ÓĞ³ÉÔ±·½·¨
+æ³¨æ„è¿™ç§åˆ©ç”¨å·²çŸ¥ç±»æ¥å®ç°è‡ªå®šä¹‰åŠŸèƒ½çš„å°è£…æ–¹æ³•ï¼Œæœ‰ç§æœ‰å˜é‡ï¼Œæ„é€ æ–¹æ³•ï¼Œè¿˜æœ‰æˆå‘˜æ–¹æ³•
 
 ```java
-//Ä£ÄâLineNumberReaderµÄ»ñÈ¡lineĞĞºÅµÄ¹¦ÄÜ
+//æ¨¡æ‹ŸLineNumberReaderçš„è·å–lineè¡Œå·çš„åŠŸèƒ½
 public class MyLineNumberReader {
 	private Reader r;
 	private int lineNumber = 0;

@@ -1,45 +1,45 @@
-# JavaÑ§Ï°±Ê¼Ç_day26
+# Javaå­¦ä¹ ç¬”è®°_day26
 
 [TOC]
 
-## ÍøÂç
+## ç½‘ç»œ
 
-### ÍøÂçÄ£ĞÍ
+### ç½‘ç»œæ¨¡å‹
 
 ![osi](http://oaxelf1sk.bkt.clouddn.com/osi.png)
 
-### ÈıÒªËØ
+### ä¸‰è¦ç´ 
 
-ipµØÖ·£¬¶Ë¿ÚºÅ£¬´«ÊäĞ­Òé
+ipåœ°å€ï¼Œç«¯å£å·ï¼Œä¼ è¾“åè®®
 
-> 127.0.0.1 »Ø»·µØÖ·,¿ÉÓÃÓÚ²âÊÔ±¾»úµÄÍøÂçÊÇ·ñÓĞÎÊÌâ. ping 127.0.0.1   
+> 127.0.0.1 å›ç¯åœ°å€,å¯ç”¨äºæµ‹è¯•æœ¬æœºçš„ç½‘ç»œæ˜¯å¦æœ‰é—®é¢˜. ping 127.0.0.1   
 
-#### ¶Ë¿ÚºÅ
+#### ç«¯å£å·
 
-	ÕıÔÚÔËĞĞµÄ³ÌĞòµÄ±êÊ¶¡£
-	ÓĞĞ§¶Ë¿Ú£º0~65535£¬ÆäÖĞ0~1024ÏµÍ³Ê¹ÓÃ»ò±£Áô¶Ë¿Ú¡£
-#### Ğ­Òé
+	æ­£åœ¨è¿è¡Œçš„ç¨‹åºçš„æ ‡è¯†ã€‚
+	æœ‰æ•ˆç«¯å£ï¼š0~65535ï¼Œå…¶ä¸­0~1024ç³»ç»Ÿä½¿ç”¨æˆ–ä¿ç•™ç«¯å£ã€‚
+#### åè®®
 
-	UDP£º
-		°ÑÊı¾İ´ò°ü
-		Êı¾İÓĞÏŞÖÆ64k
-		²»½¨Á¢Á¬½Ó
-		ËÙ¶È¿ì
-		²»¿É¿¿
-	TCP£º
-		½¨Á¢Á¬½ÓÍ¨µÀ
-		Êı¾İÎŞÏŞÖÆ
-		ËÙ¶ÈÂı
-		¿É¿¿
+	UDPï¼š
+		æŠŠæ•°æ®æ‰“åŒ…
+		æ•°æ®æœ‰é™åˆ¶64k
+		ä¸å»ºç«‹è¿æ¥
+		é€Ÿåº¦å¿«
+		ä¸å¯é 
+	TCPï¼š
+		å»ºç«‹è¿æ¥é€šé“
+		æ•°æ®æ— é™åˆ¶
+		é€Ÿåº¦æ…¢
+		å¯é 
 #### Socket
 
-![SocketÍ¨ĞÅÔ­ÀíÍ¼½â](http://oaxelf1sk.bkt.clouddn.com/SocketÍ¨ĞÅÔ­ÀíÍ¼½â.png)
+![Socketé€šä¿¡åŸç†å›¾è§£](http://oaxelf1sk.bkt.clouddn.com/Socketé€šä¿¡åŸç†å›¾è§£.png)
 
-#### Èç¹ûÒ»¸öÀàÃ»ÓĞ¹¹Ôì·½·¨£º
+#### å¦‚æœä¸€ä¸ªç±»æ²¡æœ‰æ„é€ æ–¹æ³•ï¼š
 
-  A:³ÉÔ±È«²¿ÊÇ¾²Ì¬µÄ(Math,Arrays,Collections)
-  B:µ¥ÀıÉè¼ÆÄ£Ê½(Runtime)
-  C:ÀàÖĞÓĞ¾²Ì¬·½·¨·µ»Ø¸ÃÀàµÄ¶ÔÏó(InetAddress)
+  A:æˆå‘˜å…¨éƒ¨æ˜¯é™æ€çš„(Math,Arrays,Collections)
+  B:å•ä¾‹è®¾è®¡æ¨¡å¼(Runtime)
+  C:ç±»ä¸­æœ‰é™æ€æ–¹æ³•è¿”å›è¯¥ç±»çš„å¯¹è±¡(InetAddress)
   		class Demo {
   			private Demo(){}
 
@@ -50,9 +50,9 @@ ipµØÖ·£¬¶Ë¿ÚºÅ£¬´«ÊäĞ­Òé
 
 ## InetAddress
 
-public static InetAddress getByName(String host):¸ù¾İÖ÷»úÃû»òÕßIPµØÖ·µÄ×Ö·û´®±íÊ¾µÃµ½IPµØÖ·¶ÔÏó
+public static InetAddress getByName(String host):æ ¹æ®ä¸»æœºåæˆ–è€…IPåœ°å€çš„å­—ç¬¦ä¸²è¡¨ç¤ºå¾—åˆ°IPåœ°å€å¯¹è±¡
 
-### ³ÉÔ±·½·¨
+### æˆå‘˜æ–¹æ³•
 
 ```java
 	public static void main(String[] args) throws UnknownHostException {
@@ -61,7 +61,7 @@ public static InetAddress getByName(String host):¸ù¾İÖ÷»úÃû»òÕßIPµØÖ·µÄ×Ö·û´®±íÊ
 		// InetAddress address = InetAddress.getByName("192.168.12.92");
 		InetAddress address = InetAddress.getByName("192.168.1.100");
 
-		// »ñÈ¡Á½¸ö¶«Î÷£ºÖ÷»úÃû£¬IPµØÖ·
+		// è·å–ä¸¤ä¸ªä¸œè¥¿ï¼šä¸»æœºåï¼ŒIPåœ°å€
 		// public String getHostName()
 		String name = address.getHostName();
 		// public String getHostAddress()
@@ -72,90 +72,90 @@ public static InetAddress getByName(String host):¸ù¾İÖ÷»úÃû»òÕßIPµØÖ·µÄ×Ö·û´®±íÊ
 
 ## UDP
 
-### ·¢ËÍ³ÌĞò
+### å‘é€ç¨‹åº
 
 ```java
 /*
- * UDPĞ­Òé·¢ËÍÊı¾İ£º
- * A:´´½¨·¢ËÍ¶ËSocket¶ÔÏó
- * B:´´½¨Êı¾İ£¬²¢°ÑÊı¾İ´ò°ü
- * C:µ÷ÓÃSocket¶ÔÏóµÄ·¢ËÍ·½·¨·¢ËÍÊı¾İ°ü
- * D:ÊÍ·Å×ÊÔ´
+ * UDPåè®®å‘é€æ•°æ®ï¼š
+ * A:åˆ›å»ºå‘é€ç«¯Socketå¯¹è±¡
+ * B:åˆ›å»ºæ•°æ®ï¼Œå¹¶æŠŠæ•°æ®æ‰“åŒ…
+ * C:è°ƒç”¨Socketå¯¹è±¡çš„å‘é€æ–¹æ³•å‘é€æ•°æ®åŒ…
+ * D:é‡Šæ”¾èµ„æº
  */
 	public static void main(String[] args) throws IOException {
-		// ´´½¨·¢ËÍ¶ËSocket¶ÔÏó
+		// åˆ›å»ºå‘é€ç«¯Socketå¯¹è±¡
 		// DatagramSocket()
 		DatagramSocket ds = new DatagramSocket();
 
-		// ´´½¨Êı¾İ£¬²¢°ÑÊı¾İ´ò°ü
+		// åˆ›å»ºæ•°æ®ï¼Œå¹¶æŠŠæ•°æ®æ‰“åŒ…
 		// DatagramPacket(byte[] buf, int length, InetAddress address, int port)
-		// ´´½¨Êı¾İ
-		byte[] bys = "hello,udp,ÎÒÀ´ÁË".getBytes();
-		// ³¤¶È
+		// åˆ›å»ºæ•°æ®
+		byte[] bys = "hello,udp,æˆ‘æ¥äº†".getBytes();
+		// é•¿åº¦
 		int length = bys.length;
-		// IPµØÖ·¶ÔÏó
+		// IPåœ°å€å¯¹è±¡
 		InetAddress address = InetAddress.getByName("192.168.12.92");
-		// ¶Ë¿Ú
+		// ç«¯å£
 		int port = 10086;
 		DatagramPacket dp = new DatagramPacket(bys, length, address, port);
 
-		// µ÷ÓÃSocket¶ÔÏóµÄ·¢ËÍ·½·¨·¢ËÍÊı¾İ°ü
+		// è°ƒç”¨Socketå¯¹è±¡çš„å‘é€æ–¹æ³•å‘é€æ•°æ®åŒ…
 		// public void send(DatagramPacket p)
 		ds.send(dp);
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		ds.close();
 	}
 ```
 
-### ½ÓÊÜ³ÌĞò
+### æ¥å—ç¨‹åº
 
 ```java
 /*
- * UDPĞ­Òé½ÓÊÕÊı¾İ£º
- * A:´´½¨½ÓÊÕ¶ËSocket¶ÔÏó
- * B:´´½¨Ò»¸öÊı¾İ°ü(½ÓÊÕÈİÆ÷)
- * C:µ÷ÓÃSocket¶ÔÏóµÄ½ÓÊÕ·½·¨½ÓÊÕÊı¾İ
- * D:½âÎöÊı¾İ°ü£¬²¢ÏÔÊ¾ÔÚ¿ØÖÆÌ¨
- * E:ÊÍ·Å×ÊÔ´
+ * UDPåè®®æ¥æ”¶æ•°æ®ï¼š
+ * A:åˆ›å»ºæ¥æ”¶ç«¯Socketå¯¹è±¡
+ * B:åˆ›å»ºä¸€ä¸ªæ•°æ®åŒ…(æ¥æ”¶å®¹å™¨)
+ * C:è°ƒç”¨Socketå¯¹è±¡çš„æ¥æ”¶æ–¹æ³•æ¥æ”¶æ•°æ®
+ * D:è§£ææ•°æ®åŒ…ï¼Œå¹¶æ˜¾ç¤ºåœ¨æ§åˆ¶å°
+ * E:é‡Šæ”¾èµ„æº
  */
 	public static void main(String[] args) throws IOException {
-		// ´´½¨½ÓÊÕ¶ËSocket¶ÔÏó
+		// åˆ›å»ºæ¥æ”¶ç«¯Socketå¯¹è±¡
 		// DatagramSocket(int port)
 		DatagramSocket ds = new DatagramSocket(10086);
 
-		// ´´½¨Ò»¸öÊı¾İ°ü(½ÓÊÕÈİÆ÷)
+		// åˆ›å»ºä¸€ä¸ªæ•°æ®åŒ…(æ¥æ”¶å®¹å™¨)
 		// DatagramPacket(byte[] buf, int length)
 		byte[] bys = new byte[1024];
 		int length = bys.length;
 		DatagramPacket dp = new DatagramPacket(bys, length);
 
-		// µ÷ÓÃSocket¶ÔÏóµÄ½ÓÊÕ·½·¨½ÓÊÕÊı¾İ
+		// è°ƒç”¨Socketå¯¹è±¡çš„æ¥æ”¶æ–¹æ³•æ¥æ”¶æ•°æ®
 		// public void receive(DatagramPacket p)
-		ds.receive(dp); // ×èÈûÊ½
+		ds.receive(dp); // é˜»å¡å¼
 
-		// ½âÎöÊı¾İ°ü£¬²¢ÏÔÊ¾ÔÚ¿ØÖÆÌ¨
-		// »ñÈ¡¶Ô·½µÄip
+		// è§£ææ•°æ®åŒ…ï¼Œå¹¶æ˜¾ç¤ºåœ¨æ§åˆ¶å°
+		// è·å–å¯¹æ–¹çš„ip
 		// public InetAddress getAddress()
 		InetAddress address = dp.getAddress();
 		String ip = address.getHostAddress();
-		// public byte[] getData():»ñÈ¡Êı¾İ»º³åÇø
-		// public int getLength():»ñÈ¡Êı¾İµÄÊµ¼Ê³¤¶È
+		// public byte[] getData():è·å–æ•°æ®ç¼“å†²åŒº
+		// public int getLength():è·å–æ•°æ®çš„å®é™…é•¿åº¦
 		byte[] bys2 = dp.getData();
 		int len = dp.getLength();
 		String s = new String(bys2, 0, len);
-		System.out.println(ip + "´«µİµÄÊı¾İÊÇ:" + s);
+		System.out.println(ip + "ä¼ é€’çš„æ•°æ®æ˜¯:" + s);
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		ds.close();
 	}
 ```
 
-### UDPÊµÏÖÁÄÌìÊÒ
+### UDPå®ç°èŠå¤©å®¤
 
 ```java
 /*
- * Í¨¹ı¶àÏß³Ì¸Ä½ø¸Õ²ÅµÄÁÄÌì³ÌĞò£¬ÕâÑùÎÒ¾Í¿ÉÒÔÊµÏÖÔÚÒ»¸ö´°¿Ú·¢ËÍºÍ½ÓÊÕÊı¾İÁË
+ * é€šè¿‡å¤šçº¿ç¨‹æ”¹è¿›åˆšæ‰çš„èŠå¤©ç¨‹åºï¼Œè¿™æ ·æˆ‘å°±å¯ä»¥å®ç°åœ¨ä¸€ä¸ªçª—å£å‘é€å’Œæ¥æ”¶æ•°æ®äº†
  */
 public class ChatRoom {
 	public static void main(String[] args) throws IOException {
@@ -186,14 +186,14 @@ public class ReceiveThread implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				// ´´½¨Ò»¸ö°ü¹ü
+				// åˆ›å»ºä¸€ä¸ªåŒ…è£¹
 				byte[] bys = new byte[1024];
 				DatagramPacket dp = new DatagramPacket(bys, bys.length);
 
-				// ½ÓÊÕÊı¾İ
+				// æ¥æ”¶æ•°æ®
 				ds.receive(dp);
 
-				// ½âÎöÊı¾İ
+				// è§£ææ•°æ®
 				String ip = dp.getAddress().getHostAddress();
 				String s = new String(dp.getData(), 0, dp.getLength());
 				System.out.println("from " + ip + " data is : " + s);
@@ -217,7 +217,7 @@ public class SendThread implements Runnable {
 	@Override
 	public void run() {
 		try {
-			// ·â×°¼üÅÌÂ¼ÈëÊı¾İ
+			// å°è£…é”®ç›˜å½•å…¥æ•°æ®
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					System.in));
 			String line = null;
@@ -226,18 +226,18 @@ public class SendThread implements Runnable {
 					break;
 				}
 
-				// ´´½¨Êı¾İ²¢´ò°ü
+				// åˆ›å»ºæ•°æ®å¹¶æ‰“åŒ…
 				byte[] bys = line.getBytes();
 				// DatagramPacket dp = new DatagramPacket(bys, bys.length,
 				// InetAddress.getByName("192.168.12.92"), 12345);
 				DatagramPacket dp = new DatagramPacket(bys, bys.length,
 						InetAddress.getByName("192.168.12.255"), 12306);
 
-				// ·¢ËÍÊı¾İ
+				// å‘é€æ•°æ®
 				ds.send(dp);
 			}
 
-			// ÊÍ·Å×ÊÔ´
+			// é‡Šæ”¾èµ„æº
 			ds.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -248,103 +248,103 @@ public class SendThread implements Runnable {
 
 ## TCP
 
-### ½ÓÊÜ´úÂë
+### æ¥å—ä»£ç 
 
 ```java
 /*
- * TCPĞ­Òé½ÓÊÕÊı¾İ£º
- * A:´´½¨½ÓÊÕ¶ËµÄSocket¶ÔÏó
- * B:¼àÌı¿Í»§¶ËÁ¬½Ó¡£·µ»ØÒ»¸ö¶ÔÓ¦µÄSocket¶ÔÏó
- * C:»ñÈ¡ÊäÈëÁ÷£¬¶ÁÈ¡Êı¾İÏÔÊ¾ÔÚ¿ØÖÆÌ¨
- * D:ÊÍ·Å×ÊÔ´
+ * TCPåè®®æ¥æ”¶æ•°æ®ï¼š
+ * A:åˆ›å»ºæ¥æ”¶ç«¯çš„Socketå¯¹è±¡
+ * B:ç›‘å¬å®¢æˆ·ç«¯è¿æ¥ã€‚è¿”å›ä¸€ä¸ªå¯¹åº”çš„Socketå¯¹è±¡
+ * C:è·å–è¾“å…¥æµï¼Œè¯»å–æ•°æ®æ˜¾ç¤ºåœ¨æ§åˆ¶å°
+ * D:é‡Šæ”¾èµ„æº
  */
 public class ServerDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨½ÓÊÕ¶ËµÄSocket¶ÔÏó
+		// åˆ›å»ºæ¥æ”¶ç«¯çš„Socketå¯¹è±¡
 		// ServerSocket(int port)
 		ServerSocket ss = new ServerSocket(8888);
 
-		// ¼àÌı¿Í»§¶ËÁ¬½Ó¡£·µ»ØÒ»¸ö¶ÔÓ¦µÄSocket¶ÔÏó
+		// ç›‘å¬å®¢æˆ·ç«¯è¿æ¥ã€‚è¿”å›ä¸€ä¸ªå¯¹åº”çš„Socketå¯¹è±¡
 		// public Socket accept()
-		Socket s = ss.accept(); // ÕìÌı²¢½ÓÊÜµ½´ËÌ×½Ó×ÖµÄÁ¬½Ó¡£´Ë·½·¨ÔÚÁ¬½Ó´«ÈëÖ®Ç°Ò»Ö±×èÈû¡£
+		Socket s = ss.accept(); // ä¾¦å¬å¹¶æ¥å—åˆ°æ­¤å¥—æ¥å­—çš„è¿æ¥ã€‚æ­¤æ–¹æ³•åœ¨è¿æ¥ä¼ å…¥ä¹‹å‰ä¸€ç›´é˜»å¡ã€‚
 
-		// »ñÈ¡ÊäÈëÁ÷£¬¶ÁÈ¡Êı¾İÏÔÊ¾ÔÚ¿ØÖÆÌ¨
+		// è·å–è¾“å…¥æµï¼Œè¯»å–æ•°æ®æ˜¾ç¤ºåœ¨æ§åˆ¶å°
 		InputStream is = s.getInputStream();
 
 		byte[] bys = new byte[1024];
-		int len = is.read(bys); // ×èÈûÊ½·½·¨
+		int len = is.read(bys); // é˜»å¡å¼æ–¹æ³•
 		String str = new String(bys, 0, len);
 
 		String ip = s.getInetAddress().getHostAddress();
 
 		System.out.println(ip + "---" + str);
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		s.close();
-		// ss.close(); //Õâ¸ö²»Ó¦¸Ã¹Ø±Õ
+		// ss.close(); //è¿™ä¸ªä¸åº”è¯¥å…³é—­
 	}
 }
 ```
 
-×¢Òâ£º·şÎñÆ÷²»Ó¦¸Ã¹Ø±Õ£¬µ«ÊÇÁ÷Ó¦¸Ã¹Ø±Õ
+æ³¨æ„ï¼šæœåŠ¡å™¨ä¸åº”è¯¥å…³é—­ï¼Œä½†æ˜¯æµåº”è¯¥å…³é—­
 
-×èÈûÊ½·½·¨:³ÌĞòÒ»Ö±Í£ÔÚ·½·¨ÕâÀï£¬µÈ´ıÊı¾İ¡£Ã»ÓĞÊı¾İ¾Í²»¼ÌĞøÍùÏÂÖ´ĞĞ£¬ÖÁµ½µÃµ½Êı¾İ
+é˜»å¡å¼æ–¹æ³•:ç¨‹åºä¸€ç›´åœåœ¨æ–¹æ³•è¿™é‡Œï¼Œç­‰å¾…æ•°æ®ã€‚æ²¡æœ‰æ•°æ®å°±ä¸ç»§ç»­å¾€ä¸‹æ‰§è¡Œï¼Œè‡³åˆ°å¾—åˆ°æ•°æ®
 
-### ·¢ËÍ¶Ë
+### å‘é€ç«¯
 
 ```java
 /*
- * TCPĞ­Òé·¢ËÍÊı¾İ£º
- * A:´´½¨·¢ËÍ¶ËµÄSocket¶ÔÏó
- * 		ÕâÒ»²½Èç¹û³É¹¦£¬¾ÍËµÃ÷Á¬½ÓÒÑ¾­½¨Á¢³É¹¦ÁË¡£
- * B:»ñÈ¡Êä³öÁ÷£¬Ğ´Êı¾İ
- * C:ÊÍ·Å×ÊÔ´
+ * TCPåè®®å‘é€æ•°æ®ï¼š
+ * A:åˆ›å»ºå‘é€ç«¯çš„Socketå¯¹è±¡
+ * 		è¿™ä¸€æ­¥å¦‚æœæˆåŠŸï¼Œå°±è¯´æ˜è¿æ¥å·²ç»å»ºç«‹æˆåŠŸäº†ã€‚
+ * B:è·å–è¾“å‡ºæµï¼Œå†™æ•°æ®
+ * C:é‡Šæ”¾èµ„æº
  * 
- * Á¬½Ó±»¾Ü¾ø¡£TCPĞ­ÒéÒ»¶¨ÒªÏÈ¿´·şÎñÆ÷¡£
+ * è¿æ¥è¢«æ‹’ç»ã€‚TCPåè®®ä¸€å®šè¦å…ˆçœ‹æœåŠ¡å™¨ã€‚
  * java.net.ConnectException: Connection refused: connect
  */
 public class ClientDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨·¢ËÍ¶ËµÄSocket¶ÔÏó
+		// åˆ›å»ºå‘é€ç«¯çš„Socketå¯¹è±¡
 		// Socket(InetAddress address, int port)
 		// Socket(String host, int port)
 		// Socket s = new Socket(InetAddress.getByName("192.168.12.92"), 8888);
 		Socket s = new Socket("192.168.12.92", 8888);
 
-		// »ñÈ¡Êä³öÁ÷£¬Ğ´Êı¾İ
+		// è·å–è¾“å‡ºæµï¼Œå†™æ•°æ®
 		// public OutputStream getOutputStream()
 		OutputStream os = s.getOutputStream();
-		os.write("hello,tcp,ÎÒÀ´ÁË".getBytes());
+		os.write("hello,tcp,æˆ‘æ¥äº†".getBytes());
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		s.close();
 	}
 }
 ```
 
-### ´øÓĞÊı¾İµÄ·¢ËÍºÍ½ÓÊÜµÄ¿Í»§¶ËºÍ·şÎñ¶Ë
+### å¸¦æœ‰æ•°æ®çš„å‘é€å’Œæ¥å—çš„å®¢æˆ·ç«¯å’ŒæœåŠ¡ç«¯
 
 ```java
 public class ServerDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨·şÎñÆ÷Socket¶ÔÏó
+		// åˆ›å»ºæœåŠ¡å™¨Socketå¯¹è±¡
 		ServerSocket ss = new ServerSocket(9999);
 
-		// ¼àÌı¿Í»§¶ËµÄÁ¬½Ó
-		Socket s = ss.accept(); // ×èÈû
+		// ç›‘å¬å®¢æˆ·ç«¯çš„è¿æ¥
+		Socket s = ss.accept(); // é˜»å¡
 
-		// »ñÈ¡ÊäÈëÁ÷
+		// è·å–è¾“å…¥æµ
 		InputStream is = s.getInputStream();
 		byte[] bys = new byte[1024];
-		int len = is.read(bys); // ×èÈû
+		int len = is.read(bys); // é˜»å¡
 		String server = new String(bys, 0, len);
 		System.out.println("server:" + server);
 
-		// »ñÈ¡Êä³öÁ÷
+		// è·å–è¾“å‡ºæµ
 		OutputStream os = s.getOutputStream();
-		os.write("Êı¾İÒÑ¾­ÊÕµ½".getBytes());
+		os.write("æ•°æ®å·²ç»æ”¶åˆ°".getBytes());
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		s.close();
 		// ss.close();
 	}
@@ -353,32 +353,32 @@ public class ServerDemo {
 
 public class ClientDemo {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨¿Í»§¶ËSocket¶ÔÏó
+		// åˆ›å»ºå®¢æˆ·ç«¯Socketå¯¹è±¡
 		Socket s = new Socket("192.168.1.100", 9999);
 
-		// »ñÈ¡Êä³öÁ÷
+		// è·å–è¾“å‡ºæµ
 		OutputStream os = s.getOutputStream();
-		os.write("½ñÌìÌìÆøºÜºÃ,ÊÊºÏË¯¾õ".getBytes());
+		os.write("ä»Šå¤©å¤©æ°”å¾ˆå¥½,é€‚åˆç¡è§‰".getBytes());
 
-		// »ñÈ¡ÊäÈëÁ÷
+		// è·å–è¾“å…¥æµ
 		InputStream is = s.getInputStream();
 		byte[] bys = new byte[1024];
-		int len = is.read(bys);// ×èÈû
+		int len = is.read(bys);// é˜»å¡
 		String client = new String(bys, 0, len);
 		System.out.println("client:" + client);
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		s.close();
 	}
 }
 ```
 
-### ¶àÏß³ÌµÄ¿Í»§ºÍ·şÎñ¶Ë
+### å¤šçº¿ç¨‹çš„å®¢æˆ·å’ŒæœåŠ¡ç«¯
 
 ```java
 public class UploadServer {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨·şÎñÆ÷Socket¶ÔÏó
+		// åˆ›å»ºæœåŠ¡å™¨Socketå¯¹è±¡
 		ServerSocket ss = new ServerSocket(11111);
 
 		while (true) {
@@ -400,32 +400,32 @@ public class UserThread implements Runnable {
 	@Override
 	public void run() {
 		try {
-			// ·â×°Í¨µÀÄÚµÄÁ÷
+			// å°è£…é€šé“å†…çš„æµ
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					s.getInputStream()));
-			// ·â×°ÎÄ±¾ÎÄ¼ş
+			// å°è£…æ–‡æœ¬æ–‡ä»¶
 			// BufferedWriter bw = new BufferedWriter(new
 			// FileWriter("Copy.java"));
 
-			// ÎªÁË·ÀÖ¹Ãû³Æ³åÍ»
+			// ä¸ºäº†é˜²æ­¢åç§°å†²çª
 			String newName = System.currentTimeMillis() + ".java";
 			BufferedWriter bw = new BufferedWriter(new FileWriter(newName));
 
 			String line = null;
-			while ((line = br.readLine()) != null) { // ×èÈû
+			while ((line = br.readLine()) != null) { // é˜»å¡
 				bw.write(line);
 				bw.newLine();
 				bw.flush();
 			}
 
-			// ¸ø³ö·´À¡
+			// ç»™å‡ºåé¦ˆ
 			BufferedWriter bwServer = new BufferedWriter(
 					new OutputStreamWriter(s.getOutputStream()));
-			bwServer.write("ÎÄ¼şÉÏ´«³É¹¦");
+			bwServer.write("æ–‡ä»¶ä¸Šä¼ æˆåŠŸ");
 			bwServer.newLine();
 			bwServer.flush();
 
-			// ÊÍ·Å×ÊÔ´
+			// é‡Šæ”¾èµ„æº
 			bw.close();
 			s.close();
 		} catch (IOException e) {
@@ -439,35 +439,35 @@ public class UserThread implements Runnable {
 ```java
 public class UploadClient {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨¿Í»§¶ËSocket¶ÔÏó
+		// åˆ›å»ºå®¢æˆ·ç«¯Socketå¯¹è±¡
 		Socket s = new Socket("192.168.12.92", 11111);
 
-		// ·â×°ÎÄ±¾ÎÄ¼ş
+		// å°è£…æ–‡æœ¬æ–‡ä»¶
 		// BufferedReader br = new BufferedReader(new FileReader(
 		// "InetAddressDemo.java"));
 		BufferedReader br = new BufferedReader(new FileReader(
 				"ReceiveDemo.java"));
-		// ·â×°Í¨µÀÄÚÁ÷
+		// å°è£…é€šé“å†…æµ
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
 				s.getOutputStream()));
 
 		String line = null;
-		while ((line = br.readLine()) != null) { // ×èÈû
+		while ((line = br.readLine()) != null) { // é˜»å¡
 			bw.write(line);
 			bw.newLine();
 			bw.flush();
 		}
 
-		// SocketÌá¹©ÁËÒ»¸öÖÕÖ¹£¬Ëü»áÍ¨Öª·şÎñÆ÷Äã±ğµÈÁË£¬ÎÒÃ»ÓĞÊı¾İ¹ıÀ´ÁË
+		// Socketæä¾›äº†ä¸€ä¸ªç»ˆæ­¢ï¼Œå®ƒä¼šé€šçŸ¥æœåŠ¡å™¨ä½ åˆ«ç­‰äº†ï¼Œæˆ‘æ²¡æœ‰æ•°æ®è¿‡æ¥äº†
 		s.shutdownOutput();
 
-		// ½ÓÊÕ·´À¡
+		// æ¥æ”¶åé¦ˆ
 		BufferedReader brClient = new BufferedReader(new InputStreamReader(
 				s.getInputStream()));
-		String client = brClient.readLine(); // ×èÈû
+		String client = brClient.readLine(); // é˜»å¡
 		System.out.println(client);
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		br.close();
 		s.close();
 	}
